@@ -8,8 +8,8 @@
     <title>Document</title>
     @include('icons')
     <!-- link css -->
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }} ">
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }} ">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.css') }} ">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }} ">
     <!-- noindex -->
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
