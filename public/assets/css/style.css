@@ -181,7 +181,7 @@ main>div {
     #ranking>h1{
         display:none;
     }
-    .top3{
+    #ranking tbody>tr:nth-child(-n+3){
         display:none;
     }
 

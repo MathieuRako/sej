@@ -2,8 +2,6 @@
 
 @section('title', 'Belts/Graden')
 
-
-
 @section('main')
 
     <div class="container d-flex justify-content-center">
