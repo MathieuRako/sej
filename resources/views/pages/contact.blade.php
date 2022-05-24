@@ -1,4 +1,5 @@
-@extends('template')
+@extends('template',['name' => $allcontent['website-name'][0],
+                     'footer' => $allcontent['footer']])
 
 @section('title', 'Contact')
 
@@ -10,12 +11,9 @@
             </div>
             <div class="col-lg-6 txt">
                 <article class="card h-100 justify-content-center" style="border:0px">
-                    <h1>Sportclub 't Klavertje</h1>
-                    <p class="grey">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed reiciendis
-                        quisquam dolorem,
-                        est inventore at pariatur, perferendis nisi autem harum ipsum. Perferendis, voluptate ea
-                        temporibus dolorum voluptatum eos iusto laudantium.</p>
-                    <a href="belt.html" class="btn">Lorem ipsum</a>
+                    <h1>{!! $allcontent['title'][0] !!}</h1>
+                    <p class="grey">{!! $allcontent['paragraph'][0] !!}</p>
+                    <a href="{{ $allcontent['button-link'][0] }}" class="btn">{!! $allcontent['button-text'][0] !!}</a>
                 </article>
 
             </div>
@@ -30,10 +28,9 @@
                         <section class="card h-100 text-center justify-content-center ml-lg-5" style="border:none; background:none;">
     
                             <!--Section heading-->
-                            <h2 class="h1-responsive font-weight-bold">Contact us</h2>
+                            <h2 class="h1-responsive font-weight-bold">{!! $allcontent['title-form'][0] !!}</h2>
                             <!--Section description-->
-                            <p class="w-responsivemb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-                                a matter of hours to help you.</p>
+                            <p class="w-responsivemb-5">{!! $allcontent['paragraph-form'][0] !!}</p>
         
                             <div class=" mx-auto  row d-flex justify-content-center">
         
@@ -47,7 +44,7 @@
                                                 <!--Grid column-->
                                             <div class="col-lg-6">
                                                 <div class="md-form mb-0">
-                                                    <label for="name" class="fst-italic">Your name</label>
+                                                    <label for="name" class="fst-italic">{!! $allcontent['form'][0] !!}</label>
                                                     <input type="text" id="name" name="name" class="form-control">
                                                     
                                                 </div>
@@ -57,7 +54,7 @@
                                             <!--Grid column-->
                                             <div class="col-lg-6">
                                                 <div class="md-form mb-0">
-                                                    <label for="email" class="fst-italic">Your email</label>
+                                                    <label for="email" class="fst-italic">{!! $allcontent['form'][1] !!}</label>
                                                     <input type="text" id="email" name="email" class="form-control">
     
                                                 </div>
@@ -71,7 +68,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="md-form mb-0">
-                                                    <label for="subject"  class="fst-italic">Subject</label>
+                                                    <label for="subject"  class="fst-italic">{!! $allcontent['form'][2] !!}</label>
                                                     <input type="text" id="subject" name="subject" class="form-control">
                                                  
                                                 </div>
@@ -86,7 +83,7 @@
                                             <div class="col-lg-12">
         
                                                 <div class="md-form">
-                                                    <label for="message" class="fst-italic">Your message</label>
+                                                    <label for="message" class="fst-italic">{!! $allcontent['form'][3] !!}</label>
                                                     <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea"></textarea>
                                            
                                                 </div>
@@ -98,7 +95,7 @@
                                     </form>
         
                                     <div class="text-center mt-5">
-                                        <a class="btn text-white ">Send</a>
+                                        <a class="btn text-white ">{!! $allcontent['button-form'][0] !!}</a>
                                     </div>
                                     <div class="status"></div>
                                 </div>
@@ -113,7 +110,7 @@
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5010.679141224591!2d4.99505226798338!3d51.10219472524975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c148f1cfdb371f%3A0xccab4b3823f31393!2sJC%20Samurai%20Eindhout!5e0!3m2!1sfr!2sbe!4v1651184732163!5m2!1sfr!2sbe"
                             frameborder="0" style="border:0; width:100%;height:100%;" allowfullscreen></iframe>
                     </div>
-                    <div class="fst-italic text-center mt-2">Kromstraat 3, 2430 Laakdal</div>
+                    <div class="fst-italic text-center mt-2">{!! $allcontent['location'][0] !!}</div>
                 </div>
             </div>
         </div>

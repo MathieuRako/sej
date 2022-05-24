@@ -1,4 +1,6 @@
-@extends('template')
+@extends('template',['name' => $allcontent['website-name'][0],
+                     'footer' => $allcontent['footer']])
+
 
 @section('title', 'Sponsors')
 
@@ -10,11 +12,8 @@
             </div>
             <div class="col-lg-6 txt">
                 <article class="card h-100 justify-content-center" style="border:0px">
-                    <h1>Sponsors </h1>
-                    <p class="grey">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed reiciendis
-                        quisquam dolorem,
-                        est inventore at pariatur, perferendis nisi autem harum ipsum. Perferendis, voluptate ea
-                        temporibus dolorum voluptatum eos iusto laudantium.</p>
+                    <h1>{!! $allcontent['title'][0] !!} </h1>
+                    <p class="grey">{!! $allcontent['paragraph'][0] !!} </p>
             
                 </article>
 

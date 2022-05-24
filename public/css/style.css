@@ -15,7 +15,6 @@
 
 
 
-
 article {
     margin-top: 0%;
 
@@ -276,6 +275,7 @@ main>div {
     /* home */
     #trainerspictures>div {
         margin-bottom: 5%;
+        
     }
 
     
@@ -446,3 +446,4 @@ main>div {
     height:80%;
     width:90%;
 }
+

@@ -1,4 +1,6 @@
-@extends('template')
+@extends('template',['name' => $allcontent['website-name'][0],
+                     'footer' => $allcontent['footer']])
+
 
 @section('title', 'Informations')
 @section('subtitle')
@@ -10,7 +12,7 @@
 
     <div class="container-fluid">
         <div id="traininghours" class="container ">
-            <h1 class="text-center mt-2">Training hours</h1>
+            <h1 class="text-center mt-2">{!! $allcontent['title'][0] !!}</h1>
             <div class="row row-cols-1 my-5">
 
                 <div class="col-md shadows mr-5">
@@ -162,12 +164,9 @@
                 </div>
                 <div class="col-lg-6 txt">
                     <article class="card h-100 justify-content-center ml-lg-5" style="border:0px; background:none">
-                        <h1>DOJO</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed reiciendis quisquam
-                            dolorem,
-                            est inventore at pariatur, perferendis nisi autem harum ipsum. Perferendis, voluptate ea
-                            temporibus dolorum voluptatum eos iusto laudantium.</p>
-                        <a href="contact.html#contactform" class="btn">Contact US !</a>
+                        <h1>{!! $allcontent['title'][1] !!} </h1>
+                        <p class="grey">{!! $allcontent['paragraph'][0] !!} </p>
+                        <a href="{{ $allcontent['button-link'][0] }}" class="btn">{!! $allcontent['button-text'][0] !!}</a>
 
 
                     </article>

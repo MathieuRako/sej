@@ -19,8 +19,25 @@ class CreateJudokasTable extends Migration
             $table->string('firstname');
             $table->string('belt');
             $table->integer('age');
+            $table->string('mail')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->binary('picture')->nullable();
             $table->timestamps();
         });
+
+        for ($i = 0; $i <= 40; $i++) {
+            DB::table('judokas')->insert(
+                [
+                    'name' => "Mbappé",
+                    'firstname' => "Kylian",
+                    'belt' => "Red",
+                    'age' => "23",
+                    'mail' => "kykydebondy@gmail.com",
+                    'phone_number' => "0606060606",
+                    'created_at' => now()
+                ]
+            );
+        }
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRankingsTable extends Migration
+class CreateTrainersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,26 @@ class CreateRankingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rankings', function (Blueprint $table) {
+        Schema::create('trainers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('judoka_id')->unique();
-            $table->integer('points')->default(0);
-            $table->timestamps();               
+            $table->longText('informations')->nullable();   
+            $table->timestamps();
 
             $table->foreign('judoka_id')->references('id')->on('judokas')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        for ($i = 0; $i <= 40; $i++) {
-            DB::table('rankings')->insert(
+        for ($i = 0; $i <= 12; $i++) {
+            DB::table('trainers')->insert(
                 [
                     'judoka_id' => $i+1,
-                    'points' => $i*2,
+                    'informations' => 'Good trainer',
                     'created_at' => now()
                 ]
             );
         }
+
+        
     }
 
     /**
@@ -40,6 +42,6 @@ class CreateRankingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rankings');
+        Schema::dropIfExists('trainers');
     }
 }

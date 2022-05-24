@@ -13,28 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/belts', function () {
-    return view('pages.belts');
-})->name('belts');
 
-Route::get('/club', function () {
-    return view('pages.club');
-})->name('club');
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-})->name('contact');
+
+
+
+
+
 
 Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+    return redirect()->route('page', ['name' => 'home']);
+});
 
-Route::get('/informations', 'Pages\InformationController@index')->name('informations');
+Route::get('/club', 'Pages\ClubController@indexClub')->name('club');
+Route::get('/informations', 'Pages\InformationController@indexInformation')->name('informations');
+Route::get('/{name}', 'Pages\PageController@index')->name('page');
 
-Route::get('/judo', function () {
-    return view('pages.judo');
-})->name('judo');
-
-Route::get('/sponsors', function () {
-    return view('pages.sponsors');
-})->name('sponsors');
