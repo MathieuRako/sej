@@ -1,0 +1,458 @@
+#title {
+    font-size: 17px;
+    color: gray;
+}
+
+
+
+.btn {
+    background-color: darkred;
+    color: white;
+}
+
+
+
+
+article {
+    margin-top: 0%;
+
+    padding-bottom: 5%;
+    font-size: 1.2em;
+    width: 100%;
+    margin-bottom: auto;
+
+}
+
+
+article>h1 {
+    margin-bottom: 5%;
+    font-size: 2em;
+
+}
+
+.btn:hover {
+    color: white !important;
+    background-color: rgba(28, 36, 81) !important;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: 0px 0px 3px 0 rgba(120, 11, 11, 1) !important;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(120, 11, 11, 0.295) !important;
+}
+
+.dropdown-item:active {
+    background-color: rgba(120, 11, 11, 1) !important;
+}
+
+
+article>.grey {
+    color: rgb(60, 60, 60);
+}
+
+img,
+.navbar,
+.shadows {
+    box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 25%);
+}
+
+img {
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.imgtxtcenterleft,
+.imgtxtcenterright {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+
+
+
+.txtshadow {
+    text-shadow: black 1px 0 10px;
+}
+
+main>div:nth-child(even) {
+    background-color: #f8f9fa !important;
+
+}
+
+main>div:last-child {
+    margin-bottom: 0px !important;
+}
+
+main>div:nth-child(odd) {
+    background-color: white;
+}
+
+main>div {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/* home */
+
+
+
+#trainerspictures>div>div>img {
+    height: 90%;
+    width: 100%;
+}
+
+
+
+#trainerspictures>div>div {
+    height: auto;
+}
+
+#trainerspictures>div>div>h4 {
+    font-size: 1em;
+    margin-top: 5%;
+
+    font-weight: bold;
+}
+
+#trainerspictures>div>div {
+    text-align: center;
+    color: grey;
+
+    height: 75%;
+}
+
+
+@media only screen and (max-width: 767px) {
+
+
+
+    /* informations */
+
+    tr :nth-child(3),
+    tr :nth-child(4) {
+        display: none;
+    }
+
+    #tohide {
+        display: none;
+    }
+
+
+    .table {
+        width: 20em;
+    }
+
+    #testimony>div {
+        margin-bottom: 10%;
+    }
+
+
+    /* home */
+
+    #trainerspictures>div>div {
+        justify-content: center;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    /* home */
+
+    #testimony .blockquote {
+        width: 95%;
+
+    }
+
+
+
+
+    /* informations */
+
+
+    /* --- podium */
+    #ranking>h1 {
+        display: none;
+    }
+
+    #ranking tbody>tr:nth-child(-n+3) {
+        display: none;
+    }
+
+
+    #podium-box {
+        margin: 0 auto;
+        display: flex;
+        height: 30em;
+        margin-top: -10%;
+    }
+
+    .podium-number {
+
+        font-weight: bold;
+        font-size: 4em;
+        color: white;
+
+
+
+    }
+
+    .name>h2 {
+        padding-bottom: 7%;
+
+
+
+    }
+
+    .step-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .step-container>div:first-child {
+        margin-top: auto;
+        text-align: center;
+
+    }
+
+    .step {
+        text-align: center;
+        background-color: darkred;
+    }
+
+
+
+    #first-step {
+        height: 50%;
+    }
+
+    #second-step {
+        height: 35%;
+    }
+
+    #third-step {
+        height: 30%;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 990px) {
+
+    .imgtxtlarge>div>.img>img {
+        display: none;
+    }
+
+    .imgtxtlarge>div>.txt {
+        width: 100%;
+
+
+    }
+
+    .imgtxtcenterleft>.img img,
+    .imgtxtcenterright>.img img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    article {
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    /* home */
+    #trainerspictures>div {
+        margin-bottom: 5%;
+
+    }
+
+
+
+
+
+
+
+
+
+}
+
+@media only screen and (min-width: 990px) {
+
+    #sponsors-carousel .card {
+        border: none;
+        background-color: none;
+
+    }
+
+    #sponsors-carousel .card>img {
+        box-shadow: none;
+    }
+
+    #imgtxtlarge>div>.txt>article {
+        width: 75%;
+
+
+    }
+
+
+
+    #btncontact {
+        padding-left: 25%;
+        padding-right: 25%;
+        margin-left: 15%;
+    }
+
+    #imgtxtlarge>div>.txt>article>a {
+        width: 25%;
+
+
+    }
+
+
+    .text-banneer {
+        padding-right: 50%;
+    }
+
+    .imgtxtcenterleft>.txt {
+        padding: 2%;
+        padding-left: 12%;
+    }
+
+    .imgtxtcenterright>.txt {
+        padding: 2%;
+        padding-right: 12%;
+    }
+
+    .imgtxtcenterright>.img img {
+        margin-left: auto;
+
+    }
+
+
+    #navigation>div {
+        margin-left: 2%;
+    }
+
+    #navigation {
+        margin-left: auto;
+        margin-right: 10%
+    }
+
+    #navigation>a:before,
+    #navigation>div>a:before {
+        transition: all ease-in-out .2s;
+        background: none repeat scroll 0 0 #ffffff;
+        content: "";
+        display: block;
+        height: 0.3em;
+        width: 0;
+    }
+
+    #navigation>a,
+    #navigation>div {
+        margin-top: 0.15em;
+        margin-bottom: 0.3em;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    #navigation>a:hover:before,
+    #navigation>.active:before,
+    #navigation>div>a:hover:before,
+    #navigation>div>.active:before {
+        border-top: 0.15em solid darkred;
+        margin-top: 0em;
+        width: 100%;
+    }
+
+    /* contact */
+    .formcontact {
+        margin-left: -5%;
+    }
+
+    /* home */
+    #testimony .blockquote-footer {
+        text-align: right;
+    }
+
+    #testimony .blockquote>p {
+        text-align: center;
+    }
+
+    #trainerspictures>:first-child {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-left: auto;
+    }
+
+    #trainerspictures>:nth-child(2) {
+        display: flex;
+
+        margin-right: auto;
+    }
+}
+
+/* informations */
+
+.map-container-3 {
+    overflow: hidden;
+    padding-bottom: 100%;
+    position: relative;
+    height: 0;
+
+}
+
+.map-container-3 iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.hours>div,
+.hours2>div {
+    margin-bottom: 5%;
+}
+
+
+
+#traininghours>div>div>:first-child {
+    text-align: center;
+
+    font-weight: 700;
+}
+
+/* sponsors */
+
+#allsponsors>div>div>img {
+    box-shadow: none !important;
+}
+
+/* club */
+
+#values img {
+    height: 80%;
+    width: 90%;
+}

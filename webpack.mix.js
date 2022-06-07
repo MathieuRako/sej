@@ -12,4 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/admin/adminstyle.scss', 'public/css/adminstyle.css')
+    .sass('resources/sass/pages/app.scss', 'public/css/style.css');
+
+mix.browserSync({
+    proxy: 'sej_website.test',
+    port: 3000
+});    

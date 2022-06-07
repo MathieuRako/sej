@@ -1,4 +1,4 @@
-@extends('template',['name' => $allcontent['website-name'][0],
+@extends('pages.template',['name' => $allcontent['website-name'][0],
                      'footer' => $allcontent['footer']])
 
 

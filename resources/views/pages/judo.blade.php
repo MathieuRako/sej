@@ -1,4 +1,4 @@
-@extends('template',['name' => $allcontent['website-name'][0],
+@extends('pages.template',['name' => $allcontent['website-name'][0],
                      'footer' => $allcontent['footer']])
 
 @section('title', 'Judo')
@@ -13,7 +13,7 @@
                 <article class="card h-100 justify-content-center" style="border:0px">
                     <h1>{!! $allcontent['title'][0] !!}</h1>
                     <p class="grey">{!! $allcontent['paragraph'][0] !!}</p>
-                    <a href="https://fr.wikipedia.org/wiki/Judo" class="btn">See more</a>
+                    <a href="{{ $allcontent['button-link'][0] }}" class="btn">{!! $allcontent['button-text'][0] !!}</a>
                 </article>
 
             </div>
@@ -27,7 +27,7 @@
                         <h1>{!! $allcontent['title'][1] !!}</h1>
                         <h5>{!! $allcontent['subtitle'][0] !!}</h5>
                         <p class="grey">{!! $allcontent['paragraph'][1] !!}</p>
-                        <a href="{{ $allcontent['button-link'][0] }}" class="btn">{!! $allcontent['button-text'][0] !!}</a>
+                        <a href="{{ $allcontent['button-link'][1] }}" class="btn">{!! $allcontent['button-text'][1] !!}</a>
                     </article>
 
                 </div>

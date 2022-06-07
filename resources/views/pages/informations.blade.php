@@ -1,5 +1,4 @@
-@extends('template',['name' => $allcontent['website-name'][0],
-                     'footer' => $allcontent['footer']])
+@extends('pages.template', ['name' => $allcontent['website-name'][0], 'footer' => $allcontent['footer']])
 
 
 @section('title', 'Informations')
@@ -9,148 +8,39 @@
 
 @section('main')
 
-
     <div class="container-fluid">
         <div id="traininghours" class="container ">
             <h1 class="text-center mt-2">{!! $allcontent['title'][0] !!}</h1>
-            <div class="row row-cols-1 my-5">
-
-                <div class="col-md shadows mr-5">
-
-                    <div class=" py-3">
-                        <h3>U9</h3>
-                    </div>
-                    <div class="hours">
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                    </div>
-
-
+            @for ($i = 0; $i < count($schedule); $i += 2)
+                <div class="row row-cols-1 my-5">
+                    @for ($j = 0; $j < 2; $j++)
+                        @isset($schedule[$i + $j])
+                            <?php
+                            $s = $schedule[$i + $j];
+                            ?>
+                            <div class="col-md shadows {{ $j == 1 ? ' ml-md-5' : '' }}">
+                                <div class=" py-3">
+                                    <h3>{{ $s['name'] }}</h3>
+                                </div>
+                                <div class="hours">
+                                    @foreach ($s['trainings'] as $t)
+                                        <div class="row">
+                                            <div class="col-md ml-md-5">{{ $t['day'] }}</div>
+                                            <div class="col-md mr-md-5 text-right">{{ $t['hours'] }}</div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endisset
+                    @endfor
                 </div>
-                <div class="col shadows">
-
-                    <div class=" py-3">
-                        <h3>U13</h3>
-                    </div>
-                    <div class="hours">
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-            <div class="row row-cols-1 mb-5">
-                <div class="col-md shadows mr-5">
-
-                    <div class=" py-3">
-                        <h3>13 and more</h3>
-                    </div>
-                    <div class="hours">
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-                <div class="col shadows">
-
-                    <div class=" py-3">
-                        <h3>Veterans</h3>
-                    </div>
-                    <div class="hours">
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-            <div class="row row-cols-1 mb-5 ">
-                <div class="col-md  shadows mr-5">
-
-                    <div class=" py-3">
-                        <h3>Nationale trainingen</h3>
-                    </div>
-                    <div class="hours">
-                        <div class="row">
-                            <div class="col-md ml-md-5">Lorem Ipsum</div>
-                            <div class="col-md text-center">Lorem Ipsum</div>
-                            <div class="col-md mr-md-5 text-right">Lorem ipsum</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Lorem Ipsum</div>
-                            <div class="col-md text-center">Lorem Ipsum</div>
-                            <div class="col-md mr-md-5 text-right">Lorem ipsum</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Lorem Ipsum</div>
-                            <div class="col-md text-center">Lorem Ipsum</div>
-                            <div class="col-md mr-md-5 text-right">Lorem ipsum</div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col shadows">
-
-                    <div class="py-3">
-                        <h3>U13</h3>
-                    </div>
-                    <div class="hours">
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md ml-md-5">Monday</div>
-                            <div class="col-md mr-md-5 text-right">18h30-19h30</div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-
+            @endfor
         </div>
     </div>
+
+
+
+
     <div>
         <div id="location" class="container">
             <div class="row imgtxtcenterright">
@@ -195,27 +85,27 @@
                         </div>
                     @endisset
                     @isset($rank[0])
-                    <div class="col-md-4 step-container m-0 p-0">
-                        <div class="name">
-                            <h2>{{ $rank[0]['name'] }} {{ $rank[0]['firstname'] }}</h2>
-                            <p>{{ $rank[0]['points'] }} pts</p>
+                        <div class="col-md-4 step-container m-0 p-0">
+                            <div class="name">
+                                <h2>{{ $rank[0]['name'] }} {{ $rank[0]['firstname'] }}</h2>
+                                <p>{{ $rank[0]['points'] }} pts</p>
+                            </div>
+                            <div id="first-step" class="step px-5  centerBoth podium-number">
+                                1
+                            </div>
                         </div>
-                        <div id="first-step" class="step px-5  centerBoth podium-number">
-                            1
-                        </div>
-                    </div>
                     @endisset
                     @isset($rank[2])
-                    <div class="col-md-4 step-container m-0 p-0">
-                        <div class="name">
-                            <h2>{{ $rank[2]['name'] }} {{ $rank[2]['firstname'] }}</h2>
-                            <p>{{ $rank[2]['points'] }} pts</p>
-                        </div>
+                        <div class="col-md-4 step-container m-0 p-0">
+                            <div class="name">
+                                <h2>{{ $rank[2]['name'] }} {{ $rank[2]['firstname'] }}</h2>
+                                <p>{{ $rank[2]['points'] }} pts</p>
+                            </div>
 
-                        <div id="third-step" class="step  px-5 centerBoth podium-number">
-                            3
+                            <div id="third-step" class="step  px-5 centerBoth podium-number">
+                                3
+                            </div>
                         </div>
-                    </div>
                     @endisset
                 </div>
             </div>
@@ -235,13 +125,13 @@
                     @endphp
                     @foreach ($rank as $r)
                         @isset($r)
-                        <tr>
-                            <th scope="row">{{ $i = $i + 1 }}</th>
-                            <td><strong>{{ $r['name'] }}</strong> {{ $r['firstname'] }}</td>
-                            <td>{{ $r['age'] }}</td>
-                            <td>{{ $r['belt'] }}</td>
-                            <td>{{ $r['points'] }}</td>
-                        </tr>
+                            <tr>
+                                <th scope="row">{{ $i = $i + 1 }}</th>
+                                <td><strong>{{ $r['name'] }}</strong> {{ $r['firstname'] }}</td>
+                                <td>{{ $r['age'] }}</td>
+                                <td>{{ $r['belt'] }}</td>
+                                <td>{{ $r['points'] }}</td>
+                            </tr>
                         @endisset
                     @endforeach
 

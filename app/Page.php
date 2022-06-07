@@ -9,4 +9,6 @@ class Page extends Model
     public static function get_id($name){
         return Page::where('name','=',$name)->first()['id'];
     }
+
+
 }

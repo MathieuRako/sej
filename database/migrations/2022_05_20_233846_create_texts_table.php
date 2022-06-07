@@ -18,6 +18,7 @@ class CreateTextsTable extends Migration
             $table->foreignId('page_id')->nullable();
             $table->longText('content');
             $table->string('type');
+ 
             $table->timestamps();
 
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade')->onUpdate('cascade');
@@ -32,6 +33,7 @@ class CreateTextsTable extends Migration
                     'page_id' => '1',
                     'content' => "Sportclub 't Klavertje",
                     'type' => "title"
+         
                 ],
                 [
                     'page_id' => '1',
@@ -41,7 +43,8 @@ class CreateTextsTable extends Migration
                 [
                     'page_id' => '1',
                     'content' => "Ontmoet onze trainers",
-                    'type' => "title"
+                    'type' => "title",
+                    
                 ],
                 [
                     'page_id' => '1',
@@ -70,7 +73,7 @@ class CreateTextsTable extends Migration
                     'page_id' => '1',
                     'content' => "Kromstraat 3,
                     </br>2430 Laakdal",
-                    'type' => "paragraph"
+                    'type' => "paragraph",
                 ],
                 [
                     'page_id' => '1',
@@ -88,6 +91,7 @@ class CreateTextsTable extends Migration
                     'page_id' => '1',
                     'content' => "Lorem ipsum",
                     'type' => "button-text"
+                    
                 ],
                 [
                     'page_id' => '1',
@@ -98,7 +102,8 @@ class CreateTextsTable extends Migration
                     'page_id' => '1',
                     'content' => "Lorem ipsum",
                     'type' => "button-text"
-                ],[
+                ],
+                [
                     'page_id' => '1',
                     'content' => "club",
                     'type' => "button-link"
@@ -112,50 +117,6 @@ class CreateTextsTable extends Migration
                     'page_id' => '1',
                     'content' => "informations#location",
                     'type' => "button-link"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "Johan Vos, Hoofdtrainer",
-                    'type' => "trainer-name"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "Johan Vos, Hoofdtrainer",
-                    'type' => "trainer-name"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "Johan Vos, Hoofdtrainer",
-                    'type' => "trainer-name"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "Johan Vos, Hoofdtrainer",
-                    'type' => "trainer-name"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "+32 412 34 56 78
-                    </br>johan@hetklavertje.be",
-                    'type' => "trainer-info"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "+32 412 34 56 78
-                    </br>johan@hetklavertje.be",
-                    'type' => "trainer-info"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "+32 412 34 56 78
-                    </br>johan@hetklavertje.be",
-                    'type' => "trainer-info"
-                ],
-                [
-                    'page_id' => '1',
-                    'content' => "+32 412 34 56 78
-                    </br>johan@hetklavertje.be",
-                    'type' => "trainer-info"
                 ],
                 [
                     'page_id' => '1',
@@ -438,7 +399,7 @@ class CreateTextsTable extends Migration
                 ],
                 [
                     'page_id' => '6',
-                    'content' => "Lorem ipsum",
+                    'content' => "See more",
                     'type' => "button-text"
                 ],
                 [
@@ -450,6 +411,16 @@ class CreateTextsTable extends Migration
                     'page_id' => '6',
                     'content' => "Lorem ipsum",
                     'type' => "button-text"
+                ],
+                [
+                    'page_id' => '6',
+                    'content' => "Lorem ipsum",
+                    'type' => "button-text"
+                ],
+                [
+                    'page_id' => '6',
+                    'content' => "https://en.wikipedia.org/wiki/Judo",
+                    'type' => "button-link"
                 ],
                 [
                     'page_id' => '6',

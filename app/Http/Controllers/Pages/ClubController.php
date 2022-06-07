@@ -12,7 +12,7 @@ class ClubController extends Controller
     public function indexClub(){
         $id = Page::get_id('club');
         $trainers = Trainer::select('*')
-                            ->join('judokas','trainers.id','=','judokas.id')
+                            ->join('judokas','trainers.judoka_id','=','judokas.id')
                             ->get();
         return view('pages.club',['page' => PageController::page_info($id),
                                   'allcontent' => PageController::all_content($id),

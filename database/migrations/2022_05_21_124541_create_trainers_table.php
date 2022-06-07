@@ -17,6 +17,7 @@ class CreateTrainersTable extends Migration
             $table->id();
             $table->foreignId('judoka_id')->unique();
             $table->longText('informations')->nullable();   
+            $table->boolean('main_page');
             $table->timestamps();
 
             $table->foreign('judoka_id')->references('id')->on('judokas')->onDelete('cascade')->onUpdate('cascade');
@@ -27,6 +28,7 @@ class CreateTrainersTable extends Migration
                 [
                     'judoka_id' => $i+1,
                     'informations' => 'Good trainer',
+                    'main_page' => ($i < 4 ? '1' : '0'),
                     'created_at' => now()
                 ]
             );

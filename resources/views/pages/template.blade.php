@@ -2,18 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @include('icons')
-    <!-- link css -->
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }} ">
+    @include('head')
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }} ">
-    <!-- noindex -->
-    <meta name="robots" content="noindex">
-    <meta name="googlebot" content="noindex">
-
     <!-- Lien pour le carousel des sponsors (A VOIR SI FAISABLE AVEC LE CSS EN LOCAL)-->
     <link rel="stylesheet" type="text/css"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">

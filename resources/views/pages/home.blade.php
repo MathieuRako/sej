@@ -1,4 +1,4 @@
-@extends('template',['name' => $allcontent['website-name'][0],
+@extends('pages.template',['name' => $allcontent['website-name'][0],
                      'footer' => $allcontent['footer']])
 
 @section('title')
@@ -6,11 +6,10 @@
 @endsection
 
 @section('main')
-
 <div class="container">
     <div class="row imgtxtcenterleft">
         <div class="col-lg-6 d-flex flex-wrap align-items-center">
-            <img src="images/lutte1.jpg" class="align-self-center img-fluid imgshadow" alt="" width="100%">
+            <{!! image_html($allcontent['pictures'][0]) !!} class="align-self-center img-fluid imgshadow"  width="100%">
         </div>
         <div class="col-lg-6 txt">
             <article class="card h-100 justify-content-center" style="border:0px">
@@ -41,7 +40,7 @@
             background-image: linear-gradient(
         rgba(53, 76, 116, 0.4),
         rgba(28, 36, 81, 0.4)
-    ), url('images/lutte2.jpg');
+    ), url('{!! $allcontent['pictures'][1]['link'] !!}');
             background-position: center;
             background-size:cover;
             height:40em">
@@ -57,27 +56,27 @@
 
                 <div class="col-lg-6 row">
                     <div class="col-md-6">
-                        <img src="images/entraineur1.jpg" class="align-self-center img-fluid imgshadow" alt="">
-                        <h4>{!! $allcontent['trainer-name'][0] !!}</h4>
-                        <p>{!! $allcontent['trainer-info'][0] !!}</p>
+                        <img src="{{ $trainers[0]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="">
+                        <h4>{!! $trainers[0]['name'] !!} {!! $trainers[0]['firstname'] !!}</h4>
+                        <p>{!! $trainers[0]['phone_number'] !!} </br> {!! $trainers[0]['mail'] !!}</p>
                     </div>
                     <div class="col-md-6">
-                        <img src="images/entraineur2.jpg" class="align-self-center img-fluid imgshadow" alt="">
-                        <h4>{!! $allcontent['trainer-name'][1] !!}</h4>
-                        <p>{!! $allcontent['trainer-info'][1] !!}</p>
+                        <img src="{{ $trainers[1]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="">
+                        <h4>{!! $trainers[1]['name'] !!} {!! $trainers[1]['firstname'] !!}</h4>
+                        <p>{!! $trainers[1]['phone_number'] !!} </br> {!! $trainers[1]['mail'] !!} </p>
                     </div>
 
                 </div>
                 <div class="col-lg-6 row " ;>
                     <div class="col-md-6" id="onlybigscreen">
-                        <img src="images/entraineur3.jpg" class="align-self-center img-fluid imgshadow" alt="">
-                        <h4>{!! $allcontent['trainer-name'][2] !!}</h4>
-                        <p>{!! $allcontent['trainer-info'][2] !!}</p>
+                        <img src="{{ $trainers[2]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="{{ $trainers[2]['name'] }}'s photo">
+                        <h4>{!! $trainers[2]['name'] !!} {!! $trainers[2]['firstname'] !!}</h4>
+                        <p>{!! $trainers[2]['phone_number'] !!} </br> {!! $trainers[2]['mail'] !!} </p>
                     </div>
                     <div class="col-md-6">
-                        <img src="images/entraineur4.jpg" class="align-self-center img-fluid imgshadow" alt="">
-                        <h4>{!! $allcontent['trainer-name'][3] !!}</h4>
-                        <p>{!! $allcontent['trainer-info'][3] !!}</p>
+                        <img src="{{ $trainers[3]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="{{ $trainers[3]['name'] }}'s photo">
+                        <h4>{!! $trainers[3]['name'] !!} {!! $trainers[3]['firstname'] !!}</h4>
+                        <p>{!! $trainers[3]['phone_number'] !!} </br> {!! $trainers[3]['mail'] !!} </p>
                     </div>
 
                 </div>
@@ -89,7 +88,7 @@
             background-image: linear-gradient(
             rgba(53, 76, 116, 0.4),
             rgba(28, 36, 81, 0.4)
-        ),url('images/banniereEnfant.jpg');
+        ),url('{!! $allcontent['pictures'][2]['link'] !!}');
             background-position: center;
             background-size:cover;
             height:100%;
@@ -120,7 +119,7 @@
             </div>
             <div class="col-md-4 my-md-auto">
                 <blockquote class="blockquote mb-0 mx-md-auto  ">
-                    <p class="txtshadow ">{!! $allcontent['parent'][2] !!}</p>
+                    <p class="txtshadow ">{!! $allcontent['parent-testimony'][2] !!}</p>
                     <footer class="blockquote-footer text-white ">
                         <small>
                             {!! $allcontent['parent'][2] !!}
@@ -136,7 +135,7 @@
     <div class="container">
         <div class="row imgtxtcenterleft">
             <div class="col-lg-6 d-flex flex-wrap align-items-center">
-                <img src="images/contact.jpg" class="align-self-center img-fluid imgshadow" style="height:400px " alt=""
+                <{!! image_html($allcontent['pictures'][3]) !!}  class="align-self-center img-fluid imgshadow" style="height:400px " 
                     width="100%">
             </div>
             <div class="col-lg-6 txt ">
@@ -153,7 +152,7 @@
                 background-image: linear-gradient(
             rgba(53, 76, 116, 0.4),
             rgba(28, 36, 81, 0.4)
-        ), url('images/imageValeurSport.jpg');
+        ), url('{!! $allcontent['pictures'][4]['link'] !!}');
                 background-position: center;
                 background-size:cover;
                 height:100%;
