@@ -56,7 +56,7 @@ class CreatePicturesTable extends Migration
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 3,
-                    'link' => "images/banniereEnfant.jpg"
+                    'link' => "images/banniereSmallSize.jpg"
                 ],
                 [
                     'page_id' => 1,

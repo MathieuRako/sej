@@ -1,5 +1,5 @@
 @extends('admin.texts.template', ['breadcrumbs' => ['texts', 'club']])
-
+@section('title','Club')
 @section('content')
     {!! texts_update_paragraph($alltexts['title-values'][0], $alltexts['paragraph-values'][0], null, 0, 'club', true) !!}
     {!! texts_update_paragraph($alltexts['title-value'][0], $alltexts['paragraph-value'][0], null, 1, 'club', true) !!}

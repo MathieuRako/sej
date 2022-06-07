@@ -18,8 +18,8 @@ class HomeController extends Controller
                             ->get();
         
  
-        return view('pages.home',['page' => PageController::page_info($id),
-                                  'allcontent' => PageController::all_content($id),
+        return view('pages.home',['page' => Controller::page_info($id),
+                                  'allcontent' => Controller::all_content($id),
                                   'trainers' => $trainers]);
     }
 

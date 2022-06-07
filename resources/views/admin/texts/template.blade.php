@@ -1,4 +1,7 @@
 @extends('admin.template', ['breadcrumbs' => $breadcrumbs])
+@section('title')
+    @yield('title')
+@endsection
 @section('content')
     <div class="row">
         <div class="col-12">

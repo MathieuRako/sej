@@ -62,6 +62,7 @@ class Controller extends BaseController
 
 
 
+
     
     public static function page_info($id){
         return Page::where("id","=",$id)->get('title','subtitle')[0];

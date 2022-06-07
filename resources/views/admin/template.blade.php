@@ -83,9 +83,11 @@
                     <div class="profile-img"> <img src="/images/logo.png" alt="Logo" /> </div>
                     <!-- User profile text-->
                     <div class="profile-text">
+                        @auth
                         <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="true">
-                            <span class="caret"></span></a>
+                            <span class="caret">{{ Auth::user()->name }}</span></a>
+                        @endauth
                         <div class="dropdown-menu animated flipInY">
                             <a href="/wachtwoord.php" class="dropdown-item"><i class="ti-settings"></i> Wachtwoord
                             </a>
