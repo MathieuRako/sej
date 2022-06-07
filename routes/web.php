@@ -39,7 +39,15 @@ Route::get('/admin/texts',function(){
 
 Route::get('/admin/texts/{name}','Admin\TextsController@index')->name('texts');
 Route::get('/home', 'Pages\HomeController@indexHome')->name('home');
+Route::get('/login','Auth\LoginController');
+Route::get('/register','Auth\RegisterController');
 Route::get('/club', 'Pages\ClubController@indexClub')->name('club');
 Route::get('/informations', 'Pages\InformationController@indexInformation')->name('informations');
 Route::get('/{name}', 'Pages\PageController@index')->name('page');
+
+
+
+Auth::routes();
+
+
 
