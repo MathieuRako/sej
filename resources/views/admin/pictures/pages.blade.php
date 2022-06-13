@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="card h-100 justify-content-center shadow-none bg-none " style="border:0px;">
-                                        <?php $tab = explode('/', $picture['link']); ?>
+                                        <?php $tab = explode('/', $picture['name']); ?>
                                         <h4>{!! preg_replace('/\d{14}/', '', $tab[count($tab) - 1]) !!}</h4>
                                         <form method="POST" enctype="multipart/form-data" action="/admin/pictures/update">
                                             @csrf

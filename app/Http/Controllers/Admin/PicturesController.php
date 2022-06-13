@@ -28,7 +28,7 @@ class PicturesController extends Controller
             if ($size == "nosize") {
                 return redirect()->back();
             } else {
-                $sponsors = Sponsors::join('pictures', 'pictures.id', '=', 'sponsors.picture_id')->where('size', '=', $size)->orderBy('position')->get();
+                $sponsors = Sponsors::select('sponsors.id','sponsors.size','sponsors.name as sname','sponsors.updated_at','pictures.name', 'pictures.directory')->join('pictures', 'pictures.id', '=', 'sponsors.picture_id')->where('size', '=', $size)->orderBy('position')->get();
                 return view('admin.pictures.sponsors', [
                     'sizes' => 3,
                     'sponsors' => $sponsors
@@ -70,7 +70,13 @@ class PicturesController extends Controller
     private function removePictureWithoutRequest($id)
     {
         $picture = Picture::find($id);
-        @unlink('images/' . $picture['link']);
+        $directory = $picture->directory;
+        if (isset($directory)) {
+            $directory = "images/" . $directory . '/';
+        } else {
+            $directory = "images/";
+        }
+        @unlink($directory . $picture['name']);
         $picture->delete();
     }
 
@@ -87,8 +93,7 @@ class PicturesController extends Controller
             if (isset($directory)) {
                 $picture->directory = $directory;
                 $directory = "images/" . $directory;
-            }
-            else{
+            } else {
                 $directory = "images";
             }
             $name = preg_replace('/\s+|:|-/', '', now()) . $file->getClientOriginalName();
@@ -98,7 +103,7 @@ class PicturesController extends Controller
             }
             $picture->name = $name;
             $picture->save();
-            return $picture->id();
+            return $picture->id;
         }
         return -1;
     }
@@ -115,15 +120,19 @@ class PicturesController extends Controller
         $picture = Picture::find($id);
 
         if (isset($file)) {
-            $directory = "images";
+            if (isset($picture->directory)) {
+                $directory = "images/" . $picture->directory;
+            } else {
+                $directory = "images";
+            }
             $name = preg_replace('/\s+|:|-/', '', now()) . $file->getClientOriginalName();
             $file->move($directory, $name);
-            $link = $picture['link'];
+            $oldname = $picture['name'];
 
-            @unlink('images/' . $link);
-            $picture->link = $name;
+            @unlink($directory .'/'. $oldname);
+            $picture->name = $name;
         }
-
+        
         if (isset($alt)) {
             $picture->alt = $alt;
         }
@@ -155,8 +164,13 @@ class PicturesController extends Controller
         $size = $request->input('size_');
 
         if (isset($size)) {
-            $posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('size')->first();
-            $sponsor->position = $posmax + 1;
+            @$posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('position')->first()['position'];
+            if (isset($posmax)) {
+                $sponsor->position = $posmax + 1;
+            }
+            else{
+                $sponsor->position = 1;
+            }
             $sponsor->size = $size;
         }
         @$sponsor->name = $name;
@@ -171,14 +185,20 @@ class PicturesController extends Controller
         $size = $request->input('size_');
 
         $name =  $request->input('name');
+
         @$sponsor->name = $name;
         if (isset($size)) {
-            $posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('size')->first();
-            $sponsor->position = $posmax + 1;
+            @$posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('position')->first()['position'];
+            if (isset($posmax)) {
+                $sponsor->position = $posmax + 1;
+            }
+            else{
+                $sponsor->position = 1;
+            }
             $sponsor->size = $size;
         }
         $file = $request->file('image');
-        $sponsor->picture_id = $this->addPictureWithoutRequest($file, $name);
+        $sponsor->picture_id = $this->addPictureWithoutRequest($file, $name, 'sponsors');
         $sponsor->save();
         return redirect()->back();
     }
@@ -186,7 +206,7 @@ class PicturesController extends Controller
     public function removeSponsor(Request $request)
     {
         $sponsor = Sponsors::find($request->input('id'));
-        $this->removePictureWithoutRequest($sponsor->picture_id);
+        $this->removePictureWithoutRequest($sponsor['picture_id']);
         $sponsor->delete();
         return redirect()->back();
     }

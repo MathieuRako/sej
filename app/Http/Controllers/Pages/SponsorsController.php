@@ -18,9 +18,10 @@ class SponsorsController extends Controller
             $allsponsors[] = $sponsorSize;
         }
         $id = Page::get_id('sponsors');
+
         return view('pages.sponsors',[
-            'page' => PageController::page_info($id),
-            'allcontent' => PageController::all_content($id),
+            'page' => Controller::page_info($id),
+            'allcontent' => Controller::all_content($id),
             'sponsors' => $allsponsors
         ]);
     }

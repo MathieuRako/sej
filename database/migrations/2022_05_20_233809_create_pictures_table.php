@@ -17,9 +17,10 @@ class CreatePicturesTable extends Migration
             $table->id();
             $table->foreignId('page_id')->nullable();
             $table->integer('pos')->nullable();
-            $table->string('alt');
+            $table->string('alt')->nullable();
             $table->boolean('general')->default(false);
-            $table->string('link');
+            $table->string('directory')->nullable();
+            $table->string('name');
             $table->timestamps();
 
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade')->onUpdate('cascade');
@@ -29,14 +30,16 @@ class CreatePicturesTable extends Migration
             [
                 [
                     'alt' => 'logo',
-                    'link' => 'logo.png',
+                    'name' => 'logo.png',
                     'general' => true,
+                    'directory' => null,
                     'created_at' => now()
                 ],
                 [
                     'alt' => 'banneer',
-                    'link' => 'banniereFullscreen.jpg',
+                    'name' => 'banniereFullscreen.jpg',
                     'general' => true,
+                    'directory' => null,
                     'created_at' => now()
                 ]
             ]
@@ -48,31 +51,36 @@ class CreatePicturesTable extends Migration
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "banniereSmallSize.jpg"
+                    'directory' => 'pages',
+                    'name' => "banniereSmallSize.jpg"
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 2,
-                    'link' => "contact.jpg"
+                    'directory' => 'pages',
+                    'name' => "contact.jpg"
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 3,
-                    'link' => "enfant2.jpg"
+                    'directory' => 'pages',
+                    'name' => "enfant2.jpg"
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 4,
-                    'link' => "explicationCeinture.jpg",
+                    'directory' => 'pages',
+                    'name' => "explicationCeinture.jpg",
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 5,
-                    'link' => "friendship.jpg"
+                    'directory' => 'pages',
+                    'name' => "friendship.jpg"
                 ],
             ]
         );
@@ -83,7 +91,8 @@ class CreatePicturesTable extends Migration
                     'page_id' => 2,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "gymnase.jpg"
+                    'directory' => 'pages',
+                    'name' => "gymnase.jpg"
                 ],
             ]
         );
@@ -94,31 +103,36 @@ class CreatePicturesTable extends Migration
                     'page_id' => 3,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "handshake.jpg"
+                    'directory' => 'pages',
+                    'name' => "handshake.jpg"
                 ],
                 [
                     'page_id' => 3,
                     'alt' => ' ',
                     'pos' => 2,
-                    'link' => "imageValeurSport.jpg"
+                    'directory' => 'pages',
+                    'name' => "imageValeurSport.jpg"
                 ],
                 [
                     'page_id' => 3,
                     'alt' => ' ',
                     'pos' => 3,
-                    'link' => "indexachtergrond.png"
+                    'directory' => 'pages',
+                    'name' => "indexachtergrond.png"
                 ],
                 [
                     'page_id' => 3,
                     'alt' => ' ',
                     'pos' => 4,
-                    'link' => "indexachtergrond2.png"
+                    'directory' => 'pages',
+                    'name' => "indexachtergrond2.png"
                 ],
                 [
                     'page_id' => 3,
                     'alt' => ' ',
                     'pos' => 5,
-                    'link' => "jigorokano.jpg"
+                    'directory' => 'pages',
+                    'name' => "jigorokano.jpg"
                 ],
             ]
         );
@@ -128,7 +142,8 @@ class CreatePicturesTable extends Migration
                     'page_id' => 4,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "limitbreak.jpg"
+                    'directory' => 'pages',
+                    'name' => "limitbreak.jpg"
                 ],
 
             ]
@@ -139,19 +154,22 @@ class CreatePicturesTable extends Migration
                     'page_id' => 6,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "oldmaster.jpeg"
+                    'directory' => 'pages',
+                    'name' => "oldmaster.jpeg"
                 ],
                 [
                     'page_id' => 6,
                     'alt' => ' ',
                     'pos' => 2,
-                    'link' => "provenciaal.png"
+                    'directory' => 'pages',
+                    'name' => "provenciaal.png"
                 ],
                 [
                     'page_id' => 6,
                     'alt' => ' ',
                     'pos' => 3,
-                    'link' => "picture.jpg"
+                    'directory' => 'pages',
+                    'name' => "picture.jpg"
                 ],
             ]
         );
@@ -162,7 +180,8 @@ class CreatePicturesTable extends Migration
                     'page_id' => 7,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "picture2.jpg"
+                    'directory' => 'pages',
+                    'name' => "picture2.jpg"
                 ],
             ]
         );

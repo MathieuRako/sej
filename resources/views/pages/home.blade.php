@@ -41,7 +41,7 @@
                 background-image: linear-gradient(
             rgba(53, 76, 116, 0.4),
             rgba(28, 36, 81, 0.4)
-        ), url('/images/{!! $allcontent['pictures'][1]['link'] !!}');
+        ), url('{!! get_image_path($allcontent['pictures'][1]) !!}');
                 background-position: center;
                 background-size:cover;
                 height:40em">
@@ -99,7 +99,7 @@
                 background-image: linear-gradient(
                     rgba(53, 76, 116, 0.4),
                 rgba(28, 36, 81, 0.4)
-            ),url('/images/{!! $allcontent['pictures'][2]['link'] !!}');
+            ),url('{!! get_image_path($allcontent['pictures'][2]) !!}');
                 background-position: center;
                 background-size:cover;
                 height:100%;
@@ -162,7 +162,7 @@
                     background-image: linear-gradient(
                 rgba(53, 76, 116, 0.4),
                 rgba(28, 36, 81, 0.4)
-            ), url('/images/{!! $allcontent['pictures'][4]['link'] !!}');
+            ), url('{!! get_image_path($allcontent['pictures'][4]) !!}');
                     background-position: center;
                     background-size:cover;
                     height:100%;

@@ -22,34 +22,7 @@ class CreateSponsorsTable extends Migration
             $table->timestamps();
             $table->foreign('picture_id')->references('id')->on('pictures')->onDelete('cascade')->onUpdate('cascade');
         });
-        for ($i = 0; $i < 3; $i++) {
-            DB::table('sponsors')->insert([
-                [
-                    'picture_id' => $i+1,
-                    'size' => 3,
-                    'position' => $i+1,
-                    'name' => 'Sponsor',
-                ]
-            ]);
-        }
-        for ($i = 0; $i < 4; $i++) {
-            DB::table('sponsors')->insert([
-                [
-                    'picture_id' => $i+4,
-                    'size' => 2,
-                    'position' => $i+1
-                ]
-            ]);
-        }
-        for ($i = 0; $i < 7; $i++) {
-            DB::table('sponsors')->insert([
-                [
-                    'picture_id' => $i+7,
-                    'size' => 1,
-                    'position' => $i+1
-                ]
-            ]);
-        }
+        
     }
 
     /**
