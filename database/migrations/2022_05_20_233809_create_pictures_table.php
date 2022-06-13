@@ -18,6 +18,7 @@ class CreatePicturesTable extends Migration
             $table->foreignId('page_id')->nullable();
             $table->integer('pos')->nullable();
             $table->string('alt');
+            $table->boolean('general')->default(false);
             $table->string('link');
             $table->timestamps();
 
@@ -26,15 +27,18 @@ class CreatePicturesTable extends Migration
 
         DB::table('pictures')->insert(
             [
-                'alt' => 'logo',
-                'link' => 'images/logo.png',
-                
-                'created_at' => now()
-            ],
-            [
-                'alt' => 'banneer',
-                'link' => 'images/banniereFullScreen.jpg',
-                'created_at' => now()
+                [
+                    'alt' => 'logo',
+                    'link' => 'logo.png',
+                    'general' => true,
+                    'created_at' => now()
+                ],
+                [
+                    'alt' => 'banneer',
+                    'link' => 'banniereFullscreen.jpg',
+                    'general' => true,
+                    'created_at' => now()
+                ]
             ]
         );
 
@@ -44,31 +48,121 @@ class CreatePicturesTable extends Migration
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 1,
-                    'link' => "images/lutte1.jpg"
+                    'link' => "banniereSmallSize.jpg"
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 2,
-                    'link' => "images/lutte2.jpg"
+                    'link' => "contact.jpg"
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 3,
-                    'link' => "images/banniereSmallSize.jpg"
+                    'link' => "enfant2.jpg"
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 4,
-                    'link' => "images/contact.jpg"
+                    'link' => "explicationCeinture.jpg",
                 ],
                 [
                     'page_id' => 1,
                     'alt' => ' ',
                     'pos' => 5,
-                    'link' => "images/imageValeurSport.jpg"
+                    'link' => "friendship.jpg"
+                ],
+            ]
+        );
+
+        DB::table('pictures')->insert(
+            [
+                [
+                    'page_id' => 2,
+                    'alt' => ' ',
+                    'pos' => 1,
+                    'link' => "gymnase.jpg"
+                ],
+            ]
+        );
+
+        DB::table('pictures')->insert(
+            [
+                [
+                    'page_id' => 3,
+                    'alt' => ' ',
+                    'pos' => 1,
+                    'link' => "handshake.jpg"
+                ],
+                [
+                    'page_id' => 3,
+                    'alt' => ' ',
+                    'pos' => 2,
+                    'link' => "imageValeurSport.jpg"
+                ],
+                [
+                    'page_id' => 3,
+                    'alt' => ' ',
+                    'pos' => 3,
+                    'link' => "indexachtergrond.png"
+                ],
+                [
+                    'page_id' => 3,
+                    'alt' => ' ',
+                    'pos' => 4,
+                    'link' => "indexachtergrond2.png"
+                ],
+                [
+                    'page_id' => 3,
+                    'alt' => ' ',
+                    'pos' => 5,
+                    'link' => "jigorokano.jpg"
+                ],
+            ]
+        );
+        DB::table('pictures')->insert(
+            [
+                [
+                    'page_id' => 4,
+                    'alt' => ' ',
+                    'pos' => 1,
+                    'link' => "limitbreak.jpg"
+                ],
+
+            ]
+        );
+        DB::table('pictures')->insert(
+            [
+                [
+                    'page_id' => 6,
+                    'alt' => ' ',
+                    'pos' => 1,
+                    'link' => "oldmaster.jpeg"
+                ],
+                [
+                    'page_id' => 6,
+                    'alt' => ' ',
+                    'pos' => 2,
+                    'link' => "provenciaal.png"
+                ],
+                [
+                    'page_id' => 6,
+                    'alt' => ' ',
+                    'pos' => 3,
+                    'link' => "picture.jpg"
+                ],
+            ]
+        );
+
+        DB::table('pictures')->insert(
+            [
+                [
+                    'page_id' => 7,
+                    'alt' => ' ',
+                    'pos' => 1,
+                    'link' => "picture2.jpg"
                 ],
             ]
         );

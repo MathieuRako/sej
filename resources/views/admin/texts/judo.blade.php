@@ -1,7 +1,7 @@
-@extends('admin.texts.template', ['breadcrumbs' => [ 'texts', 'judo']])
+@extends('admin.texts.template')
 @section('title','Judo')
 @section('content')
-    {!! texts_update_paragraph($alltexts['title'][0], $alltexts['paragraph'][0],["text" => $alltexts['button-text'][0], "link" => $alltexts['button-link'][0]], 1,'judo', true) !!}
+    {!! texts_update_paragraph($alltexts['title'][0], $alltexts['paragraph'][0],["text" => $alltexts['button-text'][0], "link" => $alltexts['button-link'][0]], 1, true) !!}
     {!! texts_update_form([[
         'label' => 'Title',
         'row' => 1,
@@ -27,9 +27,9 @@
         'row' => 1,
         'col' => 70,
         'text' => $alltexts['button-link'][1]
-    ]], 2, 'judo',true) !!}
+    ]], 2, true) !!}
     {!! texts_update_paragraph($alltexts['title'][2], $alltexts['paragraph'][2],[
         ["text" => $alltexts['button-text'][2], "link" => $alltexts['button-link'][2]],
         ["text" => $alltexts['button-text'][3], "link" => $alltexts['button-link'][3]],
-        ["text" => $alltexts['button-text'][4], "link" => $alltexts['button-link'][4]]], 1,'judo', true) !!}
+        ["text" => $alltexts['button-text'][4], "link" => $alltexts['button-link'][4]]], 1, true) !!}
 @endsection

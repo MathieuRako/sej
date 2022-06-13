@@ -16,7 +16,8 @@ class CreateTrainersTable extends Migration
         Schema::create('trainers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('judoka_id')->unique();
-            $table->longText('informations')->nullable();   
+            $table->longText('informations')->nullable();  
+            $table->string('picture')->nullable(); 
             $table->boolean('main_page');
             $table->timestamps();
 
@@ -29,6 +30,7 @@ class CreateTrainersTable extends Migration
                     'judoka_id' => $i+1,
                     'informations' => 'Good trainer',
                     'main_page' => ($i < 4 ? '1' : '0'),
+                    'picture' => "images/entraineur3.jpg",
                     'created_at' => now()
                 ]
             );

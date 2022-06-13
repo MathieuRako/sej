@@ -30,43 +30,32 @@ class ScheduleController extends Controller
             'created_at' => now(),
         ]);
 
-        if (isset($page)) {
-            return redirect()->route('texts', ['name' => $page]);
-        } else {
-            return redirect()->route('admin');
-        }
+
+        return redirect()->back();
     }
 
     public function updateCategory(Request $request)
     {
-        $page = $request->input('link');
+  
         $category = $this->category($request);
         $category->name = $request->input('name');
         $category->save();
-        if (isset($page)) {
-            return redirect()->route('texts', ['name' => $page]);
-        } else {
-            return redirect()->route('admin');
-        }
+        return redirect()->back();
     }
 
     public function removeCategory(Request $request)
     {
-        $page = $request->input('link');
+        
         $category = Category::find($request->input('id'));
         $category->delete();
-        if (isset($page)) {
-            return redirect()->route('texts', ['name' => $page]);
-        } else {
-            return redirect()->route('admin');
-        }
+        return redirect()->back();
     }
     #endregion
 
     #region training
     public function addTraining(Request $request)
     {
-        $page = $request->input('link');
+        
         $hours = $request->input('hours');
         $day = $request->input('day');
         $category_id = $request->input('category');
@@ -85,11 +74,7 @@ class ScheduleController extends Controller
             'created_at' => now(),
         ]);
 
-        if (isset($page)) {
-            return redirect()->route('texts', ['name' => $page]);
-        } else {
-            return redirect()->route('admin');
-        }
+        return redirect()->back();
     }
 
     public function updateTraining(Request $request)
@@ -104,21 +89,16 @@ class ScheduleController extends Controller
             $training->day = $days[$i];
             $training->save();
         }
-        $name = $request->input('link');
+        
 
-        return redirect()->route('texts', ['name' => $name]);
+        return redirect()->back();
     }
 
     public function removeTraining(Request $request)
     {
-        $page = $request->input('page');
         $training = Training::find($request->input('id'));
         $training->delete();
-        if (isset($page)) {
-            return redirect()->route('texts', ['name' => $page]);
-        } else {
-            return redirect()->route('admin');
-        }
+        return redirect()->back();
     }
     #endregion
 

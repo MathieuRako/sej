@@ -1,4 +1,4 @@
-@extends('admin.template', ['breadcrumbs' => $breadcrumbs])
+@extends('admin.template')
 @section('title')
     @yield('title')
 @endsection
@@ -7,9 +7,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h3> {{ $breadcrumbs[count($breadcrumbs) - 1]}} text's <h3>
-
-
+                    <h3> {{ Request::path() }} text's <h3>
                 </div>
             </div>
         </div>

@@ -50,7 +50,7 @@ class Controller extends BaseController
    
         $allContent = Controller::all_texts($i);
         $allContent['pictures'] = Controller::all_pictures($i);
-
+        $allContent['general-pictures'] = Picture::where('general','=',true)->get()->toArray();;
         $footer_content = Text::where('type','=','footer')
                             ->get('content')->toArray();
         $allContent['footer'] = $footer_content;

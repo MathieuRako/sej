@@ -1,10 +1,13 @@
-@extends('pages.template', ['name' => $allcontent['website-name'][0], 'footer' => $allcontent['footer']])
+@extends('pages.template',['name' => $allcontent['website-name'][0],
+                     'footer' => $allcontent['footer'],
+                     'pictures' => $allcontent['general-pictures']])
 
 @section('title')
     {{ $page['title'] }}
 @endsection
 
-@section('main')
+@section('main')   
+
     <div class="container">
         <div class="row imgtxtcenterleft">
             <div class="col-lg-6 d-flex flex-wrap align-items-center">
@@ -38,7 +41,7 @@
                 background-image: linear-gradient(
             rgba(53, 76, 116, 0.4),
             rgba(28, 36, 81, 0.4)
-        ), url('{!! $allcontent['pictures'][1]['link'] !!}');
+        ), url('/images/{!! $allcontent['pictures'][1]['link'] !!}');
                 background-position: center;
                 background-size:cover;
                 height:40em">
@@ -53,31 +56,39 @@
             <div class="row justify-content-center" id="trainerspictures">
 
                 <div class="col-lg-6 row">
+                    @isset($trainers[0])
                     <div class="col-md-6">
-                        <img src="{{ $trainers[0]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="">
+                        <img src="/images/{{ $trainers[0]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="">
                         <h4>{!! $trainers[0]['name'] !!} {!! $trainers[0]['firstname'] !!}</h4>
                         <p>{!! $trainers[0]['phone_number'] !!} </br> {!! $trainers[0]['mail'] !!}</p>
                     </div>
+                    @endisset
+                    @isset($trainers[1])
                     <div class="col-md-6">
                         <img src="{{ $trainers[1]['picture'] }}" class="align-self-center img-fluid imgshadow" alt="">
                         <h4>{!! $trainers[1]['name'] !!} {!! $trainers[1]['firstname'] !!}</h4>
                         <p>{!! $trainers[1]['phone_number'] !!} </br> {!! $trainers[1]['mail'] !!} </p>
                     </div>
+                    @endisset
 
                 </div>
                 <div class="col-lg-6 row " ;>
+                    @isset($trainers[2])
                     <div class="col-md-6" id="onlybigscreen">
                         <img src="{{ $trainers[2]['picture'] }}" class="align-self-center img-fluid imgshadow"
                             alt="{{ $trainers[2]['name'] }}'s photo">
                         <h4>{!! $trainers[2]['name'] !!} {!! $trainers[2]['firstname'] !!}</h4>
                         <p>{!! $trainers[2]['phone_number'] !!} </br> {!! $trainers[2]['mail'] !!} </p>
                     </div>
+                    @endisset
+                    @isset($trainers[3])
                     <div class="col-md-6">
                         <img src="{{ $trainers[3]['picture'] }}" class="align-self-center img-fluid imgshadow"
                             alt="{{ $trainers[3]['name'] }}'s photo">
                         <h4>{!! $trainers[3]['name'] !!} {!! $trainers[3]['firstname'] !!}</h4>
                         <p>{!! $trainers[3]['phone_number'] !!} </br> {!! $trainers[3]['mail'] !!} </p>
                     </div>
+                    @endisset
 
                 </div>
             </div>
@@ -88,7 +99,7 @@
                 background-image: linear-gradient(
                     rgba(53, 76, 116, 0.4),
                 rgba(28, 36, 81, 0.4)
-            ),url('{!! $allcontent['pictures'][2]['link'] !!}');
+            ),url('/images/{!! $allcontent['pictures'][2]['link'] !!}');
                 background-position: center;
                 background-size:cover;
                 height:100%;
@@ -151,7 +162,7 @@
                     background-image: linear-gradient(
                 rgba(53, 76, 116, 0.4),
                 rgba(28, 36, 81, 0.4)
-            ), url('{!! $allcontent['pictures'][4]['link'] !!}');
+            ), url('/images/{!! $allcontent['pictures'][4]['link'] !!}');
                     background-position: center;
                     background-size:cover;
                     height:100%;

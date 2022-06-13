@@ -1,8 +1,8 @@
-@extends('admin.texts.template', ['breadcrumbs' => ['texts', 'informations']])
+@extends('admin.texts.template')
 @section('title','Informations')
 @section('content')
-    {!! texts_update_paragraph($alltexts['title'][0], null, null, 0, 'informations', true) !!}
-    {!! texts_update_paragraph($alltexts['title'][1], $alltexts['paragraph'][0], ['text' => $alltexts['button-text'][0], 'link' => $alltexts['button-link'][0]], 1, 'informations', true) !!}
+    {!! texts_update_paragraph($alltexts['title'][0], null, null, 0,  true) !!}
+    {!! texts_update_paragraph($alltexts['title'][1], $alltexts['paragraph'][0], ['text' => $alltexts['button-text'][0], 'link' => $alltexts['button-link'][0]], 1,  true) !!}
 
 
     @for ($i = 0; $i < count($schedule); $i++)
@@ -16,7 +16,7 @@
                         
                         ?>
                         
-                        {!! update_form([['label' => 'Name', 'name' => 'name', 'row' => 1, 'col' => 50, 'text' => $s]], $i * 3 + 3, 'informations', '/admin/category', true) !!}
+                        {!! update_form([['label' => 'Name', 'name' => 'name', 'row' => 1, 'col' => 50, 'text' => $s]], $i * 3 + 3,  '/admin/category', true) !!}
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                        {!! add_form([['label' => 'Day', 'name' => 'day', 'row' => 1, 'col' => 50, 'text' => ' '], ['label' => 'Hours', 'name' => 'hours', 'row' => 1, 'col' => 50, 'text' => ' ']], $i * 3 + 5, 'informations', [['name' => 'category', 'value' => $s['id']]], '/admin/training/add', true) !!}
+                        {!! add_form([['label' => 'Day', 'name' => 'day', 'row' => 1, 'col' => 50, 'text' => ' '], ['label' => 'Hours', 'name' => 'hours', 'row' => 1, 'col' => 50, 'text' => ' ']], $i * 3 + 5,  [['name' => 'category', 'value' => $s['id']]], '/admin/training/add', true) !!}
                         <a class="btn " href="/admin/category/remove?id={{ $s['id'] }}&link=informations">
                             Delete category</a><br>
 

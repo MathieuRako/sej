@@ -14,8 +14,7 @@ class InformationController extends Controller
     public function indexInformation()
     {
         $id = Page::get_id('informations');
-        $rank = Judoka::select('judokas.*', 'rankings.points')
-            ->join('rankings', 'judokas.id', '=', 'rankings.judoka_id')
+        $rank = Judoka::select('judokas.*')
             ->orderByDesc('points')
             ->limit(10)
             ->get();

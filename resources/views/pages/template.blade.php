@@ -22,7 +22,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/home">
-                    <img src="images/logo.png" class="d-inline-block align-self-center mx-1 " width="50" height="50"
+                    <img src="images/{{$pictures[0]['link']}}" class="d-inline-block align-self-center mx-1 " width="50" height="50"
                         alt="" style="box-shadow:none;">
                     <span class="align-self-center" id="title"> {{ implode(' ', $name) }} </span>
                 </a>
@@ -119,7 +119,7 @@
           background-image: linear-gradient(
         rgba(53, 76, 116, 0.4),
         rgba(28, 36, 81, 0.4)
-      ),url('images/banniereFullscreen.jpg');
+      ),url('images/{{$pictures[1]['link']}}');
           background-position: center;
           background-size:cover;
           height:400px;

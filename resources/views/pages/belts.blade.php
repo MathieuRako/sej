@@ -1,5 +1,6 @@
 @extends('pages.template',['name' => $allcontent['website-name'][0],
-                     'footer' => $allcontent['footer']])
+                     'footer' => $allcontent['footer'],
+                     'pictures' => $allcontent['general-pictures']])
 
 @section('title', 'Belts/Graden')
 
@@ -8,7 +9,7 @@
     <div class="container d-flex justify-content-center">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-7 d-flex justify-content-center">
-                <img src="images/explicationCeinture.jpg" class="align-self-center img-fluid imgshadow bg-light"
+                <{!! image_html($allcontent['pictures'][0]) !!} class="align-self-center img-fluid imgshadow bg-light"
                     style="height: 90%" alt="" width="80%">
             </div>
             <div class="col-lg-5" style="margin-top: 2%;">

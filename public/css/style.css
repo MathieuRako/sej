@@ -374,6 +374,8 @@ main > div {
 
 #allsponsors > div > div > img {
   box-shadow: none !important;
+  width: 300px;
+  height: 150px;
 }
 
 /* club */

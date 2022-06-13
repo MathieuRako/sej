@@ -1,5 +1,6 @@
 @extends('pages.template',['name' => $allcontent['website-name'][0],
-                     'footer' => $allcontent['footer']])
+                     'footer' => $allcontent['footer'],
+                     'pictures' => $allcontent['general-pictures']])
 
 @section('title', 'Judo')
 
@@ -7,7 +8,7 @@
     <div class="container">
         <div class="row imgtxtcenterleft">
             <div class="col-lg-6 d-flex flex-wrap align-items-center img">
-                <img src="images/lutte1.jpg" class="align-self-center img-fluid imgshadow" alt="" width="100%">
+                <{!! image_html($allcontent['pictures'][0]) !!} class="align-self-center img-fluid imgshadow" alt="" width="100%">
             </div>
             <div class="col-lg-6 txt">
                 <article class="card h-100 justify-content-center" style="border:0px">
@@ -32,7 +33,7 @@
 
                 </div>
                 <div class="col-lg-6 d-flex flex-wrap align-items-center img">
-                    <img src="images/jigorokano.jpg" class="align-self-center img-fluid imgshadow" alt="jigorokano"
+                    <{!! image_html($allcontent['pictures'][1]) !!} class="align-self-center img-fluid imgshadow" 
                         width="100%">
                 </div>
 
@@ -42,7 +43,7 @@
     <div class="container">
         <div class="row imgtxtcenterleft">
             <div class="col-lg-6 d-flex flex-wrap align-items-center img">
-                <img src="images/lutte1.jpg" class="align-self-center img-fluid imgshadow" alt="" width="100%">
+                <{!! image_html($allcontent['pictures'][2]) !!} class="align-self-center img-fluid imgshadow" alt="" width="100%">
             </div>
             <div class="col-lg-6 txt">
                 <article class="card h-100 justify-content-center" style="border:0px; background:none;">
