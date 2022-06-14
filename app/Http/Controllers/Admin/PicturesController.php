@@ -28,7 +28,7 @@ class PicturesController extends Controller
             if ($size == "nosize") {
                 return redirect()->back();
             } else {
-                $sponsors = Sponsors::select('sponsors.id','sponsors.size','sponsors.name as sname','sponsors.updated_at','pictures.name', 'pictures.directory')->join('pictures', 'pictures.id', '=', 'sponsors.picture_id')->where('size', '=', $size)->orderBy('position')->get();
+                $sponsors = Sponsors::select('sponsors.id','sponsors.link','sponsors.size','sponsors.name as sname','sponsors.updated_at','pictures.name', 'pictures.directory')->join('pictures', 'pictures.id', '=', 'sponsors.picture_id')->where('size', '=', $size)->orderBy('position')->get();
                 return view('admin.pictures.sponsors', [
                     'sizes' => 3,
                     'sponsors' => $sponsors
@@ -42,13 +42,13 @@ class PicturesController extends Controller
     }
 
 
-    public function indexPage(Request $request)
+    public function indexPage($name)
     {
-        $id =  $request->input('id');
+        $id =  Page::get_id($name);
 
         if (isset($id)) {
 
-            if ($id == "nopage") {
+            if ($id == "") {
                 return redirect()->back();
             } else if ($id == "general") {
                 $pictures = Picture::where('general', '=', true)->get();
@@ -61,7 +61,7 @@ class PicturesController extends Controller
                 'pictures' => $pictures,
             ]);
         } else {
-            return view('admin.pictures.pages', ['pages' => $this->pages()]);
+            return redirect()->back();
         }
     }
 
@@ -125,7 +125,10 @@ class PicturesController extends Controller
             } else {
                 $directory = "images";
             }
+            
             $name = preg_replace('/\s+|:|-/', '', now()) . $file->getClientOriginalName();
+       
+            
             $file->move($directory, $name);
             $oldname = $picture['name'];
 
@@ -143,6 +146,7 @@ class PicturesController extends Controller
 
         $id = $request->input('id');
         $file = $request->file('image');
+     
         $alt = $request->input('alt');
 
         $this->updatePictureWithoutRequest($id, $file, $alt);
@@ -157,7 +161,7 @@ class PicturesController extends Controller
 
         $sponsor = Sponsors::find($request->input('id'));
         $file = $request->file('image');
-
+        $link = $request->input('link');
 
         @$name = $request->input('name');
         $this->updatePictureWithoutRequest($sponsor->picture_id, $file, $name);
@@ -171,8 +175,10 @@ class PicturesController extends Controller
             else{
                 $sponsor->position = 1;
             }
+
             $sponsor->size = $size;
         }
+        $sponsor->link = $link;
         @$sponsor->name = $name;
 
         $sponsor->save();
@@ -185,7 +191,7 @@ class PicturesController extends Controller
         $size = $request->input('size_');
 
         $name =  $request->input('name');
-
+        $link = $request->input('link');
         @$sponsor->name = $name;
         if (isset($size)) {
             @$posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('position')->first()['position'];
@@ -195,6 +201,7 @@ class PicturesController extends Controller
             else{
                 $sponsor->position = 1;
             }
+            $sponsor->link = $link;
             $sponsor->size = $size;
         }
         $file = $request->file('image');

@@ -13,9 +13,11 @@ class PageController extends Controller
     
     public function index($name){
         $id = Page::get_id($name);
-    
+        $ac =  Controller::all_content($id);
+        
+        
         return view('pages.'.$name, ['page' => Controller::page_info($id)
-                            ,'allcontent' => Controller::all_content($id)]);
+                            ,'allcontent' => Controller::all_content($id)],);
     }
 
     

@@ -22,8 +22,8 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/home">
-                    <img src="{{get_image_path($pictures[0])}}" class="d-inline-block align-self-center mx-1 " width="50" height="50"
-                        alt="" style="box-shadow:none;">
+                    <img src="{{ get_image_path($pictures[0]) }}" class="d-inline-block align-self-center mx-1 "
+                        width="50" height="50" alt="" style="box-shadow:none;">
                     <span class="align-self-center" id="title"> {{ implode(' ', $name) }} </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -85,8 +85,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -119,7 +120,7 @@
           background-image: linear-gradient(
         rgba(53, 76, 116, 0.4),
         rgba(28, 36, 81, 0.4)
-      ),url('{{get_image_path($pictures[1])}}');
+      ),url('{{ get_image_path($pictures[1]) }}');
           background-position: center;
           background-size:cover;
           height:400px;
@@ -153,164 +154,163 @@
                             <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="row">
+                                    @for ($i = 0; $i < count($sponsors); $i += 6)
+                                        <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
+                                            <div class="row">
+                                                @for ($j = 0; $j < 6 ; $j++)
+                                                    <div class="col-md-2 mb-3">
+                                                        <div class="card">
+                                                            @isset($sponsors[$i + $j])
+                                                                <{!! image_html($sponsors[$i + $j]) !!} class="img-fluid">
+                                                            @endisset
 
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor1.png">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor2.png">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
+                                                        </div>
+                                                    </div>
+                                                @endfor
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="row">
-
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor1.png">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor2.png">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor5.png">
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="row">
-
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor4.png">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor2.png">
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor6.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor1.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor3.png">
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 mb-3">
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="images/sponsor5.png">
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @endfor
                                 </div>
+                                {{-- <div class="carousel-item active">
+                                    <div class="row">
+
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor1.png">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor2.png">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor1.png">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor2.png">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor5.png">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor4.png">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor2.png">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor6.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor1.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor3.png">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="images/sponsor5.png">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
+
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
 
             </section>

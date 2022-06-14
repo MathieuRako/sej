@@ -46,7 +46,10 @@
                             @endfor
 
                         </select><br>
+                        <label for="link">Link</label><br>
+                        <input type="text" name="link"><br>
                         <label for="file" class="mt-1">Picture</label><br>
+
                         <input type="file" name="image" accept="image/png, image/jpeg, image/jpg"><br>
 
                         <input type="submit" class="btn-red mt-2" value="Add">
@@ -73,12 +76,14 @@
                                         <div class="card h-100 justify-content-center shadow-none bg-none " style="border:0px;">
                                             <?php $tab = explode('/', $sponsor['name']); ?>
                                             <h4></h4>
-                                            <form method="POST" id=" {{ $sponsor['id'] }} " enctype="multipart/form-data"
+                                            <form method="POST" id="{{ $sponsor['id'] }}" enctype="multipart/form-data"
                                                 action="sponsors/update">
                                                 @csrf
-
-                                                <label for="alt">Name</label><br>
-                                                <input type="text" name="alt" value={{ $sponsor['sname'] }}><br>
+                                               
+                                                <label for="name">Name</label><br>
+                                                <input type="text" name="name" value="{{ $sponsor['sname'] }}"><br>
+                                                <label for="link">Link</label><br>
+                                                <input type="text" name="link" value="{{ $sponsor['link'] }}"><br>
                                                 <label for="size_">Size</label>
                                                 <select name="size_" form="{{ $sponsor['id'] }}">
                                                     @if (!isset($sponsor['size']))

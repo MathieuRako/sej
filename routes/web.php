@@ -44,7 +44,7 @@ Route::prefix('admin')->group(function () {
             Route::post('/add','Admin\PicturesController@addSponsor');
             Route::get('/remove','Admin\PicturesController@removeSponsor');
         });
-        Route::any('/pages','Admin\PicturesController@indexPage');
+        Route::get('/{name}','Admin\PicturesController@indexPage');
         Route::post('/update','Admin\PicturesController@updatePicture')->name('updatePicture'); 
     });
 
@@ -73,11 +73,12 @@ Route::prefix('admin')->group(function () {
 
 });
 Route::get('/home', 'Pages\HomeController@indexHome')->name('home');
-Route::get('/sponsors', 'Pages\SponsorsController@index')->name('sponsors');
+
 Route::get('/login', 'Auth\LoginController');
 Route::get('/register', 'Auth\RegisterController');
 Route::get('/club', 'Pages\ClubController@indexClub')->name('club');
 Route::get('/informations', 'Pages\InformationController@indexInformation')->name('informations');
+Route::get('/sponsors', 'Pages\SponsorsController@index')->name('sponsors');
 Route::get('/{name}', 'Pages\PageController@index')->name('page');
 
 

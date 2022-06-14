@@ -1,9 +1,10 @@
-@extends('admin.template', ['breadcrumbs' => ['']])
+@extends('admin.template')
 
 
 @section('content')
+{{--
     <div class="row">
-        <div class"col-12">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h4>Pages</h4>
@@ -25,7 +26,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
     @isset($pictures)
         @foreach ($pictures as $picture)
             <div class="row">
