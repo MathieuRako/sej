@@ -1,5 +1,7 @@
-@extends('pages.template',['name' => $allcontent['website-name'][0],
-                     'footer' => $allcontent['footer']])
+@extends('pages.template', ['name' => $allcontent['website-name'][0], 
+                            'footer' => $allcontent['footer'], 
+                            'pictures' => $allcontent['general-pictures'],
+                            'sponsors' => $allcontent['sponsors']])
 
 
 @section('title', 'Club')
@@ -10,17 +12,17 @@
         <p class="text-center my-5">{!! $allcontent['paragraph-values'][0] !!}</p>
         <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-4 ">
-                <img src="images/limitbreak.jpg" class="align-self-center img-fluid imgshadow" alt="">
+                <{!! image_html($allcontent['pictures'][0]) !!} class="align-self-center img-fluid imgshadow" >
                 <h4 class="mt-3">{!! $allcontent['title-value'][0] !!}</h4>
                 <p class="d-none d-lg-block">{!! $allcontent['paragraph-value'][0] !!}</p>
             </div>
             <div class="col-lg-4">
-                <img src="images/friendship.jpg" class="align-self-center img-fluid imgshadow" alt="">
+                <{!! image_html($allcontent['pictures'][1]) !!} class="align-self-center img-fluid imgshadow">
                 <h4 class="mt-3">{!! $allcontent['title-value'][1] !!}</h4>
                 <p class="d-none d-lg-block">{!! $allcontent['paragraph-value'][1] !!}</p>
             </div>
             <div class="col-lg-4 ">
-                <img src="images/handshake.jpg" class="align-self-center img-fluid imgshadow" alt="">
+                <{!! image_html($allcontent['pictures'][2]) !!} class="align-self-center img-fluid imgshadow">
                 <h4 class="mt-3">{!! $allcontent['title-value'][2] !!}</h4>
                 <p class="d-none d-lg-block">{!! $allcontent['paragraph-value'][2] !!}</p>
             </div>
@@ -41,7 +43,7 @@
 
                 </div>
                 <div class="col-lg-6 img d-flex flex-wrap align-items-center">
-                    <img src="images/oldmaster.jpeg" class="align-self-center img-fluid imgshadow" alt="" width="70%"
+                    <{!! image_html($allcontent['pictures'][3]) !!}class="align-self-center img-fluid imgshadow" width="70%"
                         style="height: 90%">
                 </div>
             </div>
@@ -52,8 +54,8 @@
         <div class="container bg-white">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-7 d-flex justify-content-center">
-                    <img src="images/gymnase.jpg" class="align-self-center img-fluid imgshadow bg-white" style="height: 90%"
-                        alt="" width="80%">
+                    <{!! image_html($allcontent['pictures'][4]) !!}class="align-self-center img-fluid imgshadow bg-white" style="height: 90%"
+                      width="80%">
                 </div>
                 <div class="col-lg-5" style="margin-top: 2%;">
                     <article class="card h-100 justify-content-center border-0 bg-white">

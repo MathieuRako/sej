@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     @include('head')
     <script src="https://kit.fontawesome.com/7a4fdd1fd4.js" crossorigin="anonymous"></script>
@@ -104,8 +107,14 @@
                         <li>
                             <a href ="/admin/texts">
                                 <i class="fa-solid fa-align-justify"></i><span class="hide-menu">Texts</span></a>
-
                         </li>
+                        <li>
+                            <a href ="/admin/pictures">
+                                <i class="fa-solid fa-align-justify"></i><span class="hide-menu">Pictures</span></a>
+                        </li>
+                        <li>
+                            <a href = "/admin/judokas">
+                                <i class="fa-solid fa-medal"></i><span class="hide-menu">Judokas</span></a>
                         <li>
                             <a href="/" target="_blank" aria-expanded="false"><i class="fa fa-share"></i><span
                                     class="hide-menu">Website</span></a>
@@ -129,20 +138,28 @@
             <div class="container-fluid" style="margin-top:5%">
                 <div class="row page-titles">
                     <div class="col-md-5  col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">@yield('title', 'home')</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">@yield('title','Index')</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/admin">Index</a></li>
+                            <?php 
+                            $breadcrumbs = explode('/',Request::path());
+                            ?>
+                            <li class="breadcrumb-item {!! 0 == count($breadcrumbs) ? 'active' : '' !!}"><a href="/admin">Index</a></li>
 
-                            @for ($i = 0; $i < count($breadcrumbs); $i++)
-                                <li class="breadcrumb-item {!! $i == count($breadcrumbs) - 1 ? 'active' : '' !!}">
-                                    <?php
-                                        $link = "";
-                                        for($j=0; $j<= $i; $j++){
-                                            $link = $link."/".$breadcrumbs[$j];
-                                        }
-                                    ?>
-                                    <a href = "/admin{!!$link!!}"> {{ $breadcrumbs[$i] }}</a>
-                                </li>
+                            @for ($i = 1; $i < count($breadcrumbs); $i++)
+                                @if($i == count($breadcrumbs) - 1)
+                                    <li class = "breadcrumb-item active">{{ $breadcrumbs[$i] }}</li>
+                                @else
+
+                                    <li class="breadcrumb-item">
+                                        <?php
+                                            $link = "";
+                                            for($j=1; $j<= $i; $j++){
+                                                $link = $link."/".$breadcrumbs[$j];
+                                            }
+                                        ?>
+                                        <a href = "/admin{!!$link!!}"> {{ $breadcrumbs[$i] }}</a>
+                                    </li>
+                                @endif
                             @endfor
 
                         </ol>
@@ -168,3 +185,5 @@
         });
     </script>
 </body>
+
+</html>

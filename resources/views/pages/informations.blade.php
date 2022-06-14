@@ -1,4 +1,7 @@
-@extends('pages.template', ['name' => $allcontent['website-name'][0], 'footer' => $allcontent['footer']])
+@extends('pages.template', ['name' => $allcontent['website-name'][0], 
+                            'footer' => $allcontent['footer'], 
+                            'pictures' => $allcontent['general-pictures'],
+                            'sponsors' => $allcontent['sponsors']])
 
 
 @section('title', 'Informations')

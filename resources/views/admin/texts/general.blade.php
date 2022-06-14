@@ -1,4 +1,4 @@
-@extends('admin.texts.template', ['breadcrumbs' => [ 'texts', 'general']])
+@extends('admin.texts.template')
 @section('title','General')
 @section('content')
     @for($i=0;$i<count($alltexts['footer']);$i++)
@@ -7,12 +7,12 @@
             'row' => 3,
             'col' => 70,
             'text' => $alltexts['footer'][$i]  
-        ]], $i, 'general',true) !!}
+        ]], $i, true) !!}
     @endfor
     {!! texts_update_form([[
         'label' => 'Website-name',
         'row' => 1,
         'col' => 40,
         'text' => $alltexts['website-name'][0]  
-    ]], $i, 'general',true) !!}
+    ]], $i, true) !!}
 @endsection

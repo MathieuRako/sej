@@ -1,4 +1,4 @@
-@extends('admin.template',['breadcrumbs' => ['texts']])
+@extends('admin.template')
 
 @section('content')
 <div class="row">

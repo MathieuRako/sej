@@ -3,7 +3,16 @@
 
 function image_html($i)
 {
-    return 'img src = "' . $i['link'] . '" alt = "' . $i['alt'] . '"';
+    return 'img src = "'.get_image_path($i).'" alt = "' . $i['alt'] . '"';
+}
+
+function get_image_path($i)
+{
+    if (isset($i['directory'])) {
+        return '/images/' . $i['directory'] . '/' . $i['name'];
+    } else {
+        return '/images/' . $i['name'];
+    }
 }
 
 
@@ -12,8 +21,7 @@ function texts_field($row, $n)
 {
     if (!isset($row['name'])) {
         $name = "content[]";
-    }
-    else{
+    } else {
         $name = $row['name'];
     }
     $str = '<label for="' . $name . '">>' . $row['label'] . '</label><br>';
@@ -27,7 +35,7 @@ function texts_field($row, $n)
     return $str;
 }
 
-function update_form($tab, $n, $page, $route, ?bool $card)
+function update_form($tab, $n, $route, ?bool $card)
 {
 
     $str = '<form action="' . $route . '" method="POST" id="form-' . $n . '">' . csrf_field();
@@ -37,68 +45,66 @@ function update_form($tab, $n, $page, $route, ?bool $card)
         $ids[] = $row['text']['id'];
     }
 
-    $str = $str . texts_update_submit($ids, $page);
+    $str = $str . texts_update_submit($ids);
 
-    if(isset($card) & $card){
+    if (isset($card) & $card) {
         return card_wrap($str);
     }
     return $str;
 }
 
 
-function texts_update_form($tab, $n, $page, ?bool $card)
+function texts_update_form($tab, $nt, ?bool $card)
 {
 
-    return update_form($tab, $n, $page, '/admin/texts', $card);
+    return update_form($tab, $nt, '/admin/texts', $card);
 }
 
-function texts_page($page) 
+
+function texts_update_submit($ids)
 {
-    return '<input type="hidden" name ="link" value = "' . $page . '">';
-}
-function texts_update_submit($ids, $page)
-{
-    $str =  '<input type="hidden" name ="ids" value =  "' . implode('-', $ids) . '">' . texts_page($page);
+    $str =  '<input type="hidden" name ="ids" value =  "' . implode('-', $ids) . '">';
     return $str . '<input class = "btn" type="submit" value="Update"> </form>';
 }
 
-function card_wrap($str){
-    return '<div class="row">' .
-    '<div class="col-12">' .
-    '<div class="card">' .
-    '<div class="card-body">'.$str.'</div> </div> </div> </div>';
-}
-function add_form($tab, $n, $page, $hiddens, $route, ?bool $card)
+function card_wrap($str)
 {
-    
+    return '<div class="row">' .
+        '<div class="col-12">' .
+        '<div class="card">' .
+        '<div class="card-body">' . $str . '</div> </div> </div> </div>';
+}
+function add_form($tab, $n, $hiddens, $route, ?bool $card)
+{
+
     $str = '<form action="' . $route . '" method="POST" id="form-' . $n . '">' . csrf_field();
     foreach ($tab as $row) {
         $str = $str . texts_field($row, $n, null) . '<br>';
     }
     if (isset($hiddens)) {
         foreach ($hiddens as $hidden) {
-            $str = $str . '<input type = "hidden" name = "'. $hidden['name'] .'" value = "' . $hidden['value'] . '">';
+            $str = $str . '<input type = "hidden" name = "' . $hidden['name'] . '" value = "' . $hidden['value'] . '">';
         }
     }
 
-    $str = $str . texts_add_submit($page, $n);
-    if(isset($card) & $card){
+    $str = $str . texts_add_submit();
+    if (isset($card) & $card) {
         return card_wrap($str);
     }
     return $str;
 }
 
-function texts_add_form($tab, $n, $page, $hiddens, ?bool $card)
+function texts_add_form($tab, $nt, $hiddens, ?bool $card)
 {
-    return add_form($tab, $n, $page, $hiddens, '/admin/texts/add', $card);
+    return add_form($tab, $nt, $hiddens, '/admin/texts/add', $card);
 }
 
-function texts_add_submit($page)
+function texts_add_submit()
 {
-    return texts_page($page) . '<input class = "btn" type="submit" value="Add"> </form>';
+    return  '<input class = "btn" type="submit" value="Add"> </form>';
 }
 
-function texts_update_paragraph($title, $paragraphs, $buttons, $i, $page, ?bool $card)
+function texts_update_paragraph($title, $paragraphs, $buttons, $it, ?bool $card)
 {
     $texts = [[
         'label' => 'Title',
@@ -156,5 +162,5 @@ function texts_update_paragraph($title, $paragraphs, $buttons, $i, $page, ?bool 
             ];
         }
     }
-    return texts_update_form($texts, $i, $page, $card);
+    return texts_update_form($texts, $it, $card);
 }

@@ -21,7 +21,8 @@ class CreateJudokasTable extends Migration
             $table->integer('age');
             $table->string('mail')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('picture')->nullable();
+            
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
 
@@ -34,7 +35,8 @@ class CreateJudokasTable extends Migration
                     'age' => "23",
                     'mail' => "kykydebondy@gmail.com",
                     'phone_number' => "0606060606",
-                    'picture' => "images/entraineur3.jpg",
+                    
+                    'points' => $i *2,
                     'created_at' => now()
                 ]
             );

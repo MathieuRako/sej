@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Pages\PageController;
 use App\Page;
+use App\Http\Requests\TextsRequest;
 use App\Text;
 use Illuminate\Http\Request;
 
@@ -35,21 +36,15 @@ class TextsController extends Controller
     }
 
 
-    public function removeText(Request $request){
+    public function removeText(TextsRequest $request){
         $id = $request->input('id');
-        $page = $request->input('page');
         $text = Text::find($id);
         $text->delete();
-        if(isset($page)){
-            return redirect()->route('texts',['name' => $page]);
-        }
-        else{
-            return redirect()->route('admin');
-        }
+        return redirect()->back();
     }
 
-    public function addText(Request $request){
-        $page = $request->input('link');
+    public function addText(TextsRequest $request){
+        $page = $request->input('page');
         $page_id = Page::get_id($page);
         $content = $request->input('content');
         $type = $request->input('type');
@@ -60,12 +55,12 @@ class TextsController extends Controller
             'created_at' => now()
         ]);
 
-        return redirect()->route('texts',['name' => $page]);
+        return redirect()->back();
 
 
     }
     //
-    public function updateText(Request $request){
+    public function updateText(TextsRequest $request){
         $contents = $request->input('content');
         $ids = explode('-',$request->input('ids'));
 
@@ -74,8 +69,8 @@ class TextsController extends Controller
             $text->content = $contents[$i];
             $text->save();
         }
-        $name =$request->input('link');
+        
 
-        return redirect()->route('texts',['name' => $name]);
+        return redirect()->back();
     }
 }

@@ -25,6 +25,29 @@ Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin');
+    
+    Route::prefix('judokas')->group(function () {
+        Route::any('/','Admin\JudokasController@index');
+        Route::post('/update','Admin\JudokasController@update');
+        Route::post('/add','Admin\JudokasController@add');
+        Route::get('/remove','Admin\JudokasController@remove');
+          
+    });
+    Route::prefix('pictures')->group(function(){
+        Route::get('/', function () {
+            return view('admin.pictures');
+        });
+        Route::prefix('sponsors')->group(function(){
+            Route::get('/','Admin\PicturesController@indexSponsor');
+            Route::post('/','Admin\PicturesController@indexSponsor'); 
+            Route::post('/update','Admin\PicturesController@updateSponsor');
+            Route::post('/add','Admin\PicturesController@addSponsor');
+            Route::get('/remove','Admin\PicturesController@removeSponsor');
+        });
+        Route::get('/{name}','Admin\PicturesController@indexPage');
+        Route::post('/update','Admin\PicturesController@updatePicture')->name('updatePicture'); 
+    });
+
     Route::prefix('category')->group(function () {
         Route::post('/', 'Admin\ScheduleController@updateCategory');
         Route::get('/remove', 'Admin\ScheduleController@removeCategory');
@@ -50,10 +73,12 @@ Route::prefix('admin')->group(function () {
 
 });
 Route::get('/home', 'Pages\HomeController@indexHome')->name('home');
+
 Route::get('/login', 'Auth\LoginController');
 Route::get('/register', 'Auth\RegisterController');
 Route::get('/club', 'Pages\ClubController@indexClub')->name('club');
 Route::get('/informations', 'Pages\InformationController@indexInformation')->name('informations');
+Route::get('/sponsors', 'Pages\SponsorsController@index')->name('sponsors');
 Route::get('/{name}', 'Pages\PageController@index')->name('page');
 
 
