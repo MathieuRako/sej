@@ -48,8 +48,6 @@
                             </div>
                         </div>
                         <a class="nav-item nav-link {{ Request::is('judo') ? 'active' : '' }}" href="judo">JUDO</a>
-                        <a class="nav-item nav-link {{ Request::is('belts') ? 'active' : '' }}"
-                            href="belts">BELTS/GRADEN</a>
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {{ Request::is('informations') ? 'active' : '' }}"
                                 href="informations" id="navbarDropdown" role="button" aria-haspopup="true"
@@ -70,7 +68,7 @@
                             <div><a id="btncontact" class="btn" href="contact">CONTACT</a></div>
                         </div>
 
-                        @guest
+                        <!--@guest
 
                             <a class="nav-link ml-lg-5" href="{{ route('login') }}">{{ __('Login') }}</a>
 
@@ -101,7 +99,7 @@
                                     @endif
                                 </div>
                             </div>
-                        @endguest
+                        @endguest -->
 
 
 
