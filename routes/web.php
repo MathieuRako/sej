@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 
-Route::prefix('admin')->group(function () {
+    Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin');
@@ -72,6 +72,7 @@ Route::prefix('admin')->group(function () {
     });
 
 });
+
 Route::get('/home', 'Pages\HomeController@indexHome')->name('home');
 
 Route::get('/login', 'Auth\LoginController');

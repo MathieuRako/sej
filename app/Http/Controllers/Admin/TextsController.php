@@ -73,4 +73,8 @@ class TextsController extends Controller
 
         return redirect()->back();
     }
+
+    public function __invoke()
+    {
+    }
 }
