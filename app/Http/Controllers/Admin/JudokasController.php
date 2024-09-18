@@ -45,14 +45,14 @@ class JudokasController extends Controller
     }
     public function update(Request $request){
         $id = $request->input('id');
-        
+        return $request->all();
         $judoka = Judoka::find($id);
         $judoka->name = $request->input('name');
         $judoka->firstname = $request->input('firstname');
         $judoka->belt = $request->input('belt');
         $judoka->age = $request->input('age');
         $judoka->mail = $request->input('mail');
-        $judoka->phone_number = $request->input('phone  ');
+        $judoka->phone_number = $request->input('phone');
         $judoka->points = $request->input('points');
         $judoka->save();
         

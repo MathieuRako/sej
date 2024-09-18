@@ -87,9 +87,9 @@
                     <!-- User profile text-->
                     <div class="profile-text">
                         @auth
-                        <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="true">
-                            <span class="caret">{{ Auth::user()->name }}</span></a>
+                            <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="true">
+                                <span class="caret">{{ Auth::user()->name }}</span></a>
                         @endauth
                         <div class="dropdown-menu animated flipInY">
                             <a href="/wachtwoord.php" class="dropdown-item"><i class="ti-settings"></i> Wachtwoord
@@ -104,21 +104,47 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">MENU</li>
-                        <li>
-                            <a href ="/admin/texts">
-                                <i class="fa-solid fa-align-justify"></i><span class="hide-menu">Texts</span></a>
+                        <li class="dropdown">
+                            <a  href="/admin/texts" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa-solid fa-align-justify"></i><span class="hide-menu">Texts</span>
+                            </a>
+                          
+                            <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="/admin/texts/belts">Belts/Graden</a>
+                              <a class="dropdown-item" href="/admin/texts/club">Club</a>
+                              <a class="dropdown-item" href="/admin/texts/contact">Contact</a>
+                              <a class="dropdown-item" href="/admin/texts/home">Home</a>
+                              <a class="dropdown-item" href="/admin/texts/informations">Informations</a>
+                              <a class="dropdown-item" href="/admin/texts/judo">Judo</a>
+                              <a class="dropdown-item" href="/admin/texts/sponsors">Sponsors</a>
+                              <a class="dropdown-item" href="/admin/texts/general">General</a>
+                            </div>
                         </li>
-                        <li>
-                            <a href ="/admin/pictures">
-                                <i class="fa-solid fa-align-justify"></i><span class="hide-menu">Pictures</span></a>
+                        <li class="dropdown">
+                            <a  href="/admin/pictures" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa-solid fa-image"></i><span class="hide-menu">Pictures</span>
+                            </a>
+                          
+                            <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="/admin/pictures/belts">Belts</a>
+                              <a class="dropdown-item" href="/admin/pictures/club">Club</a>
+                              <a class="dropdown-item" href="/admin/pictures/contact">Contact</a>
+                              <a class="dropdown-item" href="/admin/pictures/home">Home</a>
+                              <a class="dropdown-item" href="/admin/pictures/informations">Informations</a>
+                              <a class="dropdown-item" href="/admin/pictures/judo">Judo</a>
+                              <a class="dropdown-item" href="/admin/pictures/sponsors">Sponsors</a>
+                              <a class="dropdown-item" href="/admin/pictures/general">General</a>
+                            </div>
                         </li>
+                    
                         <li>
-                            <a href = "/admin/judokas">
+                            <a href="/admin/judokas">
                                 <i class="fa-solid fa-medal"></i><span class="hide-menu">Judokas</span></a>
                         <li>
                             <a href="/" target="_blank" aria-expanded="false"><i class="fa fa-share"></i><span
                                     class="hide-menu">Website</span></a>
                         </li>
+
                     </ul>
                 </nav>
 
@@ -138,26 +164,25 @@
             <div class="container-fluid" style="margin-top:5%">
                 <div class="row page-titles">
                     <div class="col-md-5  col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">@yield('title','Index')</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">@yield('title', 'Index')</h3>
                         <ol class="breadcrumb">
-                            <?php 
-                            $breadcrumbs = explode('/',Request::path());
+                            <?php
+                            $breadcrumbs = explode('/', Request::path());
                             ?>
                             <li class="breadcrumb-item {!! 0 == count($breadcrumbs) ? 'active' : '' !!}"><a href="/admin">Index</a></li>
 
                             @for ($i = 1; $i < count($breadcrumbs); $i++)
-                                @if($i == count($breadcrumbs) - 1)
-                                    <li class = "breadcrumb-item active">{{ $breadcrumbs[$i] }}</li>
+                                @if ($i == count($breadcrumbs) - 1)
+                                    <li class="breadcrumb-item active">{{ $breadcrumbs[$i] }}</li>
                                 @else
-
                                     <li class="breadcrumb-item">
                                         <?php
-                                            $link = "";
-                                            for($j=1; $j<= $i; $j++){
-                                                $link = $link."/".$breadcrumbs[$j];
-                                            }
+                                        $link = '';
+                                        for ($j = 1; $j <= $i; $j++) {
+                                            $link = $link . '/' . $breadcrumbs[$j];
+                                        }
                                         ?>
-                                        <a href = "/admin{!!$link!!}"> {{ $breadcrumbs[$i] }}</a>
+                                        <a href="/admin{!! $link !!}"> {{ $breadcrumbs[$i] }}</a>
                                     </li>
                                 @endif
                             @endfor
@@ -183,6 +208,7 @@
                 $('.nav-item, menu').css('margin-left', '0px');
             }
         });
+
     </script>
 </body>
 

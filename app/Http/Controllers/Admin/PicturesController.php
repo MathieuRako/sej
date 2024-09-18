@@ -28,7 +28,7 @@ class PicturesController extends Controller
             if ($size == "nosize") {
                 return redirect()->back();
             } else {
-                $sponsors = Sponsors::select('sponsors.id','sponsors.link','sponsors.size','sponsors.name as sname','sponsors.updated_at','pictures.name', 'pictures.directory')->join('pictures', 'pictures.id', '=', 'sponsors.picture_id')->where('size', '=', $size)->orderBy('position')->get();
+                $sponsors = Sponsors::select('sponsors.id', 'sponsors.link', 'sponsors.size', 'sponsors.name as sname', 'sponsors.updated_at', 'pictures.name', 'pictures.directory')->join('pictures', 'pictures.id', '=', 'sponsors.picture_id')->where('size', '=', $size)->orderBy('position')->get();
                 return view('admin.pictures.sponsors', [
                     'sizes' => 3,
                     'sponsors' => $sponsors
@@ -44,14 +44,19 @@ class PicturesController extends Controller
 
     public function indexPage($name)
     {
+        if ($name = 'general') {
+            $pictures = Picture::where('general', '=', true)->get();
+            return view('admin.pictures.pages', [
+                'pages' => $this->pages(),
+                'pictures' => $pictures,
+            ]);
+        }
         $id =  Page::get_id($name);
 
         if (isset($id)) {
 
             if ($id == "") {
                 return redirect()->back();
-            } else if ($id == "general") {
-                $pictures = Picture::where('general', '=', true)->get();
             } else {
 
                 $pictures = Picture::where('page_id', '=', $id)->get();
@@ -125,17 +130,17 @@ class PicturesController extends Controller
             } else {
                 $directory = "images";
             }
-            
+
             $name = preg_replace('/\s+|:|-/', '', now()) . $file->getClientOriginalName();
-       
-            
+
+
             $file->move($directory, $name);
             $oldname = $picture['name'];
 
-            @unlink($directory .'/'. $oldname);
+            @unlink($directory . '/' . $oldname);
             $picture->name = $name;
         }
-        
+
         if (isset($alt)) {
             $picture->alt = $alt;
         }
@@ -146,7 +151,7 @@ class PicturesController extends Controller
 
         $id = $request->input('id');
         $file = $request->file('image');
-     
+
         $alt = $request->input('alt');
 
         $this->updatePictureWithoutRequest($id, $file, $alt);
@@ -171,8 +176,7 @@ class PicturesController extends Controller
             @$posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('position')->first()['position'];
             if (isset($posmax)) {
                 $sponsor->position = $posmax + 1;
-            }
-            else{
+            } else {
                 $sponsor->position = 1;
             }
 
@@ -197,8 +201,7 @@ class PicturesController extends Controller
             @$posmax = Sponsors::select('position')->where('size', '=', $size)->orderByDesc('position')->first()['position'];
             if (isset($posmax)) {
                 $sponsor->position = $posmax + 1;
-            }
-            else{
+            } else {
                 $sponsor->position = 1;
             }
             $sponsor->link = $link;

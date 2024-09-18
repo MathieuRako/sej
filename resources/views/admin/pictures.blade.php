@@ -5,8 +5,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-               <a href = "pictures/pages">Pages</a>
-               <a href = "pictures/sponsors">Sponsors</a>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam necessitatibus? Adipisci quibusdam odit amet aliquam libero! Ea, sequi. Accusantium, dolorum id qui aliquam beatae quod iste distinctio ex obcaecati?
 
             </div>
         </div>

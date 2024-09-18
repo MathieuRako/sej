@@ -44,7 +44,7 @@ Route::get('/', function () {
             Route::post('/add','Admin\PicturesController@addSponsor');
             Route::get('/remove','Admin\PicturesController@removeSponsor');
         });
-        Route::get('/{name}','Admin\PicturesController@indexPage');
+        Route::get('/{name}','Admin\PicturesController@indexPage')->name('picturesPage');
         Route::post('/update','Admin\PicturesController@updatePicture')->name('updatePicture'); 
     });
 
